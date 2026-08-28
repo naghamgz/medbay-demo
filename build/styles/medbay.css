@@ -501,6 +501,26 @@
 .payment-demo-modal__card { background: #fff; border-radius: var(--radius-card); padding: 40px; max-width: 440px; text-align: center; }
 .payment-demo-modal__card .icon-circle { margin: 0 auto 20px; }
 
+/* ===== Product quantity selector (cards + product detail) ===== */
+.qty-selector { display: inline-flex; align-items: center; gap: 6px; }
+.qty-btn {
+  width: 40px; height: 40px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--mb-border); border-radius: 8px;
+  background: #fff; color: var(--mb-text);
+  font-size: 17px; line-height: 1; cursor: pointer;
+}
+.qty-btn:hover { border-color: var(--mb-green); color: var(--mb-green-dark); }
+.qty-input {
+  width: 44px; height: 40px; flex: none;
+  text-align: center; border: 1px solid var(--mb-border); border-radius: 8px;
+  font-family: inherit; font-size: 14.5px; font-weight: 600; color: var(--mb-text);
+}
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.qty-input[type="number"] { -moz-appearance: textfield; }
+.product-card__actions .qty-selector { flex: none; }
+
 /* ===== RTL (Arabic) ===== */
 html[dir="rtl"] body { direction: rtl; font-family: 'Segoe UI', Tahoma, Arial, var(--font-primary), sans-serif; }
 html[dir="rtl"] .pd-tabs a { margin-right: 0; margin-left: 28px; }

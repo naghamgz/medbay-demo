@@ -140,7 +140,8 @@
       btn.addEventListener("click", () => {
         const id = btn.getAttribute("data-qty-decrease");
         const item = readCart().find((i) => i.id === id);
-        setQty(id, (item ? item.qty : 0) - 1);
+        // Decreasing at qty 1 stays at 1 — Remove is the explicit way to delete a line.
+        setQty(id, Math.max(1, (item ? item.qty : 1) - 1));
       });
     });
     container.querySelectorAll("[data-remove-item]").forEach((btn) => {
@@ -175,11 +176,48 @@
     renderCheckoutSummary();
   }
 
+  /** Clamp a raw quantity value into the demo's 1–99 range (invalid input falls back to 1). */
+  function clampQty(value) {
+    const n = parseInt(value, 10);
+    if (isNaN(n)) return 1;
+    return Math.min(99, Math.max(1, n));
+  }
+
+  /** Per-card quantity steppers (product cards + product detail) — local UI state only. */
+  function initQtySelectors() {
+    document.querySelectorAll("[data-qty-selector]").forEach((selector) => {
+      const input = selector.querySelector("[data-qty-input]");
+      if (!input) return;
+      const decreaseBtn = selector.querySelector("[data-qty-decrease-card]");
+      const increaseBtn = selector.querySelector("[data-qty-increase-card]");
+
+      if (decreaseBtn) {
+        decreaseBtn.addEventListener("click", () => {
+          input.value = clampQty(parseInt(input.value, 10) - 1);
+        });
+      }
+      if (increaseBtn) {
+        increaseBtn.addEventListener("click", () => {
+          input.value = clampQty(parseInt(input.value, 10) + 1);
+        });
+      }
+      input.addEventListener("change", () => {
+        input.value = clampQty(input.value);
+      });
+      input.addEventListener("blur", () => {
+        input.value = clampQty(input.value);
+      });
+    });
+  }
+
   function initAddToCartButtons() {
     document.querySelectorAll("[data-add-to-cart]").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        add(btn.getAttribute("data-add-to-cart"), 1);
+        const actionsContainer = btn.closest(".product-card__actions, .pd-actions") || btn.parentElement;
+        const qtyInput = actionsContainer ? actionsContainer.querySelector("[data-qty-input]") : null;
+        const qty = qtyInput ? clampQty(qtyInput.value) : 1;
+        add(btn.getAttribute("data-add-to-cart"), qty);
         const original = btn.textContent;
         btn.textContent = "✓";
         setTimeout(() => {
@@ -196,6 +234,7 @@
   window.MedBayCart = { add, removeItem, setQty, clear, getLineItems, getCount, getSubtotalAED, render };
 
   document.addEventListener("DOMContentLoaded", () => {
+    initQtySelectors();
     initAddToCartButtons();
     render();
   });
