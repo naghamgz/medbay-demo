@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "note": "Factual content imported for the MedBay International demo. DentalBay could not be retrieved: dentalbay.com has an expired SSL certificate, and dentalbay.store is a client-rendered SPA that returns no content to a non-JS fetch (loading placeholders only) and a 410 on /products. No DentalBay content is included below as a result — nothing was invented to fill the gap.",
+    "sources": [
+      "https://medbayint.com/",
+      "https://medbayint.com/contact-us/",
+      "https://medbayint.com/about-us/",
+      "https://medbayint.com/shop/",
+      "https://medbayint.com/shipping-delivery/",
+      "https://medbayint.com/returns-policy/",
+      "https://medbayint.com/payment-method/",
+      "https://medbayint.com/privacy-policy/",
+      "https://medbayint.com/terms-and-conditions/",
+      "https://medbayint.com/faqs/",
+      "https://medbayint.com/request-an-unavailable-product/"
+    ]
+  },
+  "company": {
+    "name": "MedBay International",
+    "tagline": "Precision in Every Cut – High-Quality General Surgery Instruments",
+    "description": "MedBay International is a global medical technology and healthcare solutions company specializing in the sourcing, distribution, manufacturing, and development of medical devices, surgical instruments, and healthcare consumables.",
+    "mission": "To provide reliable, innovative, and cost-effective medical technologies and healthcare solutions to healthcare providers around the world.",
+    "vision": "To become a leading international healthcare solutions provider and a trusted global partner in medical technology, manufacturing, and distribution.",
+    "operations_presence": ["Egypt", "Turkey", "United Arab Emirates", "Saudi Arabia", "Kuwait", "United States", "China"],
+    "manufacturing": ["Two facilities in Egypt through industrial partnerships", "One facility in China for large-scale production"],
+    "services": [
+      "OEM and private label production",
+      "Custom surgical kits and medical procedure kits",
+      "Technical support, maintenance, and spare parts for medical equipment",
+      "Product design and development"
+    ],
+    "specialties_about_page": ["General Surgery", "Laparoscopy", "Endoscopy", "Urology", "Gynecology", "Interventional Radiology", "Dental materials", "Hospital disposables"],
+    "leadership": "Founded and led by Dr. Abdelrahman Elashrafi, anesthesia consultant, entrepreneur, and healthcare business development leader.",
+    "group_companies": ["MedZone", "Top Medical", "Kemitt Overseas"],
+    "source_url": "https://medbayint.com/about-us/"
+  },
+  "contact": {
+    "phones": ["+201000993812", "+201000855255", "+201270320470"],
+    "email": "support@medbayint.com",
+    "offices": [
+      { "label": "Sheraton Office", "address": "Abdelhamid Badawey St, Heliopolis" },
+      { "label": "New Nozha Office", "address": "10 Ouf St, Masr Elgedida" },
+      { "label": "Alexandria Office", "address": "Abdelmoatey St, Shatbey" },
+      { "label": "Alexandria Factory", "address": "Amria Free Zone 23512" }
+    ],
+    "social": ["Facebook", "Instagram", "YouTube", "X (Twitter)"],
+    "source_url": "https://medbayint.com/contact-us/"
+  },
+  "specialties": [
+    "Anesthesiology and Critical Care",
+    "Dentistry",
+    "Dermatology",
+    "Emergency Medicine",
+    "General Surgery",
+    "Internal Medicine",
+    "Medical Laboratories",
+    "Obstetrics & Gynecology (OB/GYN)",
+    "Ophthalmology",
+    "Orthopedic Surgery",
+    "Otolaryngology (ENT Surgery)",
+    "Pathology",
+    "Radiology & Interventional Radiology",
+    "Urology"
+  ],
+  "specialties_source_url": "https://medbayint.com/",
+  "products": [
+    { "name": "Covidien MEDTRONIC PROTACK 5MM with 30 Titanium Helical Fasteners", "sku": "174006", "category": "General Surgery", "manufacturer": "Covidien / Medtronic", "price": 200.00, "purchaseType": "quote" },
+    { "name": "3.0mm Excalibur Screw Anchor Titanium – Double Suture with Needle", "sku": "TM05112130", "category": "Orthopedic Surgery", "manufacturer": "Excalibur", "price": 38.00, "purchaseType": "quote" },
+    { "name": "5.0mm Excalibur Screw Anchor Titanium – Double Suture with Needles", "sku": "TM05112150", "category": "Orthopedic Surgery", "manufacturer": "Excalibur", "price": 38.00, "purchaseType": "quote" },
+    { "name": "Abbott Balance Middleweight Guide Wire with MICROGLIDE Coating", "sku": "1001780", "category": "Radiology & Interventional Radiology", "manufacturer": "Abbott", "price": 38.00, "purchaseType": "quote" },
+    { "name": "AcrySof SA60AT Intraocular Lens", "sku": "SA60AT", "category": "Ophthalmology", "manufacturer": "Alcon", "price": 50.00, "purchaseType": "quote" },
+    { "name": "Amcrylate Surgical Bio-Adhesive – Iso Amyl 2-Cyanoacrylate 0.25ml", "sku": null, "category": "General Surgery", "manufacturer": "Amcrylate", "price": 18.00, "purchaseType": "quote" },
+    { "name": "Bojin BJ1303B Cannulated Surgical Drill – Cordless Power Tool", "sku": null, "category": "Orthopedic Surgery", "manufacturer": "Bojin", "price": 600.00, "purchaseType": "quote" },
+    { "name": "Boston Scientific Zebra Straight Tip Guidewire – 0.035in x 150cm", "sku": "M0066701120", "category": "Radiology & Interventional Radiology", "manufacturer": "Boston Scientific", "price": 20.00, "purchaseType": "quote" },
+    { "name": "Covidien EEA Circular Stapler with Tri-Staple Technology – 31mm", "sku": "TRIEEA31MT", "category": "General Surgery", "manufacturer": "Covidien", "price": 300.00, "purchaseType": "quote" },
+    { "name": "Covidien Endo GIA Articulating Reload", "sku": "EGIA60AMT", "category": "General Surgery", "manufacturer": "Covidien", "price": 50.00, "purchaseType": "quote" },
+    { "name": "Covidien Endo GIA Universal Loading Unit 60mm", "sku": "030415", "category": "General Surgery", "manufacturer": "Covidien", "price": 36.00, "purchaseType": "quote" },
+    { "name": "Covidien Endo GIA Universal Loading Unit 60mm – 3.5mm", "sku": "030414", "category": "General Surgery", "manufacturer": "Covidien", "price": 36.00, "purchaseType": "quote" }
+  ],
+  "products_source_url": "https://medbayint.com/shop/",
+  "products_note": "All 12 products found on the live shop listing page were imported (fewer than the 20-40 target; the source page did not expose more without paginating through an unknown catalogue size). purchaseType set to 'quote' for all — these are professional surgical/clinical items, consistent with the brief's guidance for high-value medical equipment.",
+  "shipping_policy": {
+    "coverage": "Medbay ships within the Arab Republic of Egypt only.",
+    "timeframes": { "cairo_giza_alexandria": "1-2 days", "other_governorates": "2-5 days" },
+    "note": "Friday and official holidays are not shipping days.",
+    "cost": { "cairo_giza_alexandria": "Free shipping", "other_governorates": "80 Egyptian pounds" },
+    "source_url": "https://medbayint.com/shipping-delivery/"
+  },
+  "returns_policy": {
+    "window": "14 days after delivery to request a refund.",
+    "shipping": "Return shipping costs are covered by MedBay.",
+    "authenticity_guarantee": "If a purchase is found counterfeit, full refund including shipping fees paid.",
+    "process": ["Initiate a return from your orders", "Schedule a courier pickup", "Ship the item in original condition and packaging", "Refund processed after inspection"],
+    "source_url": "https://medbayint.com/returns-policy/"
+  },
+  "payment_methods": {
+    "methods": ["Cash on Delivery", "Bank Transfer", "Vodafone Cash", "Instapay / other e-wallets (contact support to confirm availability)"],
+    "note": "The source site does not publish a formal payment-methods policy document; this list reflects the payment options shown on the page.",
+    "source_url": "https://medbayint.com/payment-method/"
+  },
+  "privacy_policy_summary": {
+    "data_collected": "Identity data, contact data, delivery address, financial data, plus browsing/search behavior on the platform.",
+    "data_use": "Process and deliver orders, manage customer relationships, improve services, send marketing communications, detect fraud, comply with legal requirements.",
+    "data_sharing": "May be shared with third-party service providers, delivery partners, and payment processors, who are required to agree to the terms of the Privacy and Cookie Notice.",
+    "security": "Appropriate security measures are used to prevent personal data being accidentally lost, used, or accessed without authorization.",
+    "user_rights": "Users can request access, correction, or deletion of their data under applicable data protection laws.",
+    "source_url": "https://medbayint.com/privacy-policy/"
+  },
+  "terms_summary": {
+    "platform_role": "MedBay operates an e-commerce marketplace in Egypt and is not a party to any contract for the sale or purchase of products advertised on the marketplace.",
+    "user_requirements": "Users must be 18+, provide accurate registration information; accounts are personal and non-transferable.",
+    "sales_terms": "Contracts form between buyers and sellers on purchase confirmation; products must be of satisfactory quality and conform to listings; prices must include all taxes.",
+    "returns_refunds": "Managed by MedBay in accordance with the Returns Policy page.",
+    "content_rules": "User content must be accurate, legal and appropriate; offensive material, spam, fake reviews, and off-platform transaction circumvention are prohibited.",
+    "liability": "MedBay excludes liability for business losses, data corruption, and service interruptions; aggregate liability capped at amounts paid by the user.",
+    "governing_law": "Laws of the Arab Republic of Egypt; Cairo courts have exclusive jurisdiction.",
+    "source_url": "https://medbayint.com/terms-and-conditions/"
+  },
+  "faqs": {
+    "note": "The live FAQ page lists 7 questions, but 6 of the 7 answers are duplicated WooCommerce placeholder text on the source site itself (not a fetch error) — only genuine content is imported below; the rest is intentionally left out rather than invented.",
+    "verified_qas": [
+      {
+        "q": "How do I change my account's default billing and shipping addresses?",
+        "a": "Access \"Address Book\" or \"Manage Addresses,\" then use \"Add New Address\" to create additional entries. During checkout, select your shipping address, then uncheck \"My billing and shipping address are the same\" on the payment page to choose different billing options from your saved addresses."
+      }
+    ],
+    "unanswered_on_source": [
+      "How will my credit card be authorized and charged?",
+      "Do I have to pay sales tax?",
+      "How can I find out if an item is covered by my insurance?",
+      "Can I ship internationally?",
+      "Can I cancel or make changes to an order after it has been submitted?",
+      "How do I order a breast pump through insurance?"
+    ],
+    "source_url": "https://medbayint.com/faqs/"
+  },
+  "request_unavailable_product": {
+    "intro": "If you can't find the product you're looking for, just fill out this form, and we'll do our best to provide it for you!",
+    "alternative_contact": "Email support@medbayint.com or call the listed phone numbers.",
+    "source_url": "https://medbayint.com/request-an-unavailable-product/",
+    "note": "The specific form fields were not visible in the fetched content; the demo form reuses the same field set as the existing Request a Quote page."
+  },
+  "dentalbay": {
+    "status": "unavailable",
+    "attempted": ["https://www.dentalbay.com/ (SSL certificate expired)", "https://www.dentalbay.store/ (client-rendered SPA, no content in fetch)", "https://www.dentalbay.store/products (HTTP 410 Gone)"],
+    "note": "No DentalBay content imported. The homepage link to DentalBay is kept as an external reference link only, per MedBay's own footer, pointing to https://www.dentalbay.store/."
+  }
+}
