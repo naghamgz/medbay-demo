@@ -20,37 +20,67 @@
       <img src="../assets/medbay-logo.png" alt="MedBay International">
     </a>
     <nav class="site-header__nav" aria-label="Primary">
-      <a href="../index.html">Home</a>
-      <a href="../about/index.html">About</a>
-      <a href="../products/index.html" aria-current="page">Products</a>
-      <a href="../specialties/index.html">Specialties</a>
-      <a href="../services/index.html">Services</a>
-      <a href="../brands/index.html">Brands</a>
-      <a href="../contact/index.html">Contact</a>
+      <a href="../index.html" data-i18n="nav.home">Home</a>
+      <a href="../about/index.html" data-i18n="nav.about">About</a>
+      <a href="../products/index.html" aria-current="page" data-i18n="nav.products">Products</a>
+      <a href="../specialties/index.html" data-i18n="nav.specialties">Specialties</a>
+      <a href="../services/index.html" data-i18n="nav.services">Services</a>
+      <a href="../brands/index.html" data-i18n="nav.brands">Brands</a>
+      <a href="../contact/index.html" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="site-header__actions">
-      <a class="btn btn-primary" href="../request-quote/index.html">Request a Quote</a>
+      <div class="header-controls">
+      <div class="header-controls__desktop-only">
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" class="lang-switch__btn" data-lang="en">EN</button>
+          <button type="button" class="lang-switch__btn" data-lang="ar">العربية</button>
+        </div>
+        <select class="currency-select--header" data-currency-select aria-label="Currency">
+          <option value="AED">AED</option>
+          <option value="USD">USD</option>
+          <option value="SAR">SAR</option>
+          <option value="EGP">EGP</option>
+        </select>
+      </div>
+      <a href="../cart/index.html" class="cart-link" data-cart-link aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="cart-badge" data-cart-count>0</span>
+      </a>
+    </div>
+    <a class="btn btn-primary" href="../request-quote/index.html" data-i18n="nav.requestQuote">Request a Quote</a>
       <button class="site-header__toggle" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </div>
   <div class="site-header__mobile-panel" data-menu-panel>
-    <a href="../index.html">Home</a>
-    <a href="../about/index.html">About</a>
-    <a href="../products/index.html">Products</a>
-    <a href="../specialties/index.html">Specialties</a>
-    <a href="../services/index.html">Services</a>
-    <a href="../brands/index.html">Brands</a>
-    <a href="../contact/index.html">Contact</a>
-    <a class="btn btn-primary btn-block" style="margin-top:16px" href="../request-quote/index.html">Request a Quote</a>
+    <a href="../index.html" data-i18n="nav.home">Home</a>
+    <a href="../about/index.html" data-i18n="nav.about">About</a>
+    <a href="../products/index.html" data-i18n="nav.products">Products</a>
+    <a href="../specialties/index.html" data-i18n="nav.specialties">Specialties</a>
+    <a href="../services/index.html" data-i18n="nav.services">Services</a>
+    <a href="../brands/index.html" data-i18n="nav.brands">Brands</a>
+    <a href="../contact/index.html" data-i18n="nav.contact">Contact</a>
+    <div class="mobile-panel-controls">
+      <div class="lang-switch" data-lang-switch>
+        <button type="button" class="lang-switch__btn" data-lang="en">EN</button>
+        <button type="button" class="lang-switch__btn" data-lang="ar">العربية</button>
+      </div>
+      <select class="currency-select--header" data-currency-select aria-label="Currency">
+        <option value="AED">AED</option>
+        <option value="USD">USD</option>
+        <option value="SAR">SAR</option>
+        <option value="EGP">EGP</option>
+      </select>
+    </div>
+    <a class="btn btn-primary btn-block" style="margin-top:16px" href="../request-quote/index.html" data-i18n="nav.requestQuote">Request a Quote</a>
   </div>
 </header>
 <main id="main">
 
   <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb"><a href="../index.html">Home</a><span>/</span><span aria-current="page">Products</span></div>
+      <div class="breadcrumb"><a href="../index.html" data-i18n="nav.home">Home</a><span>/</span><span aria-current="page">Products</span></div>
       <span class="eyebrow">Products</span>
       <h1>Medical Equipment Catalogue</h1>
       <p class="body-text">Browse our range of clinical technologies by specialty, category or manufacturer.</p>
@@ -59,160 +89,184 @@
   <section class="section">
     <div class="container">
       <div class="filter-bar">
-        <div class="filter-bar__search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="text" placeholder="Search products..."></div>
-        <select><option>All Categories</option><option>General Surgery</option><option>Orthopedic Surgery</option><option>Radiology &amp; Interventional Radiology</option><option>Ophthalmology</option></select>
-        <select><option>All Manufacturers</option><option>Covidien / Medtronic</option><option>Excalibur</option><option>Abbott</option><option>Alcon</option><option>Amcrylate</option><option>Bojin</option><option>Boston Scientific</option></select>
-        <select><option>Sort: Featured</option><option>Name A&ndash;Z</option><option>Newest</option></select>
+        <div class="filter-bar__search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><input type="text" placeholder="Search products..." data-search-input data-i18n="ecommerce.searchProducts" data-i18n-attr="placeholder"></div>
+        <select data-filter-category><option value="all" data-i18n="ecommerce.allCategories">All Categories</option><option value="General Surgery">General Surgery</option><option value="Orthopedic Surgery">Orthopedic Surgery</option><option value="Radiology &amp; Interventional Radiology">Radiology &amp; Interventional Radiology</option><option value="Ophthalmology">Ophthalmology</option></select>
+        <select data-filter-manufacturer><option value="all" data-i18n="ecommerce.allManufacturers">All Manufacturers</option><option>Covidien</option><option>Covidien / Medtronic</option><option>Excalibur</option><option>Abbott</option><option>Alcon</option><option>Amcrylate</option><option>Bojin</option><option>Boston Scientific</option></select>
+        <select><option data-i18n="ecommerce.featured">Sort: Featured</option><option data-i18n="ecommerce.nameAZ">Name A&ndash;Z</option><option data-i18n="ecommerce.newest">Newest</option></select>
       </div>
       <div class="chip-row">
-        <span class="chip is-active">All</span>
-        <span class="chip">General Surgery</span>
-        <span class="chip">Orthopedic Surgery</span>
-        <span class="chip">Radiology &amp; Interventional Radiology</span>
-        <span class="chip">Ophthalmology</span>
+        <span class="chip is-active" data-filter-chip="all">All</span>
+        <span class="chip" data-filter-chip="General Surgery">General Surgery</span>
+        <span class="chip" data-filter-chip="Orthopedic Surgery">Orthopedic Surgery</span>
+        <span class="chip" data-filter-chip="Radiology &amp; Interventional Radiology">Radiology &amp; Interventional Radiology</span>
+        <span class="chip" data-filter-chip="Ophthalmology">Ophthalmology</span>
       </div>
-      <div class="grid grid-4">
-        <div class="card product-card">
+      <div class="grid grid-4" data-product-grid>
+        <div class="card product-card" data-product-card data-product-name="Covidien MEDTRONIC PROTACK 5MM with 30 Titanium Helical Fasteners" data-product-sku="174006" data-product-manufacturer="Covidien / Medtronic" data-product-category="General Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Z"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">General Surgery</span>
             <h3>Covidien MEDTRONIC PROTACK 5MM with 30 Titanium Helical Fasteners</h3>
-            <p>Covidien / Medtronic &middot; SKU 174006 &middot; $200.00</p>
+            <p>Covidien / Medtronic &middot; SKU 174006 &middot; <span class="price" data-price-aed="200.00">AED 200.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="protack-5mm" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="3.0mm Excalibur Screw Anchor Titanium – Double Suture with Needle" data-product-sku="TM05112130" data-product-manufacturer="Excalibur" data-product-category="Orthopedic Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4v10a4 4 0 0 0 8 0V6a2 2 0 1 1 4 0v2"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">Orthopedic Surgery</span>
             <h3>3.0mm Excalibur Screw Anchor Titanium &ndash; Double Suture with Needle</h3>
-            <p>Excalibur &middot; SKU TM05112130 &middot; $38.00</p>
+            <p>Excalibur &middot; SKU TM05112130 &middot; <span class="price" data-price-aed="38.00">AED 38.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="excalibur-anchor-30" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="5.0mm Excalibur Screw Anchor Titanium – Double Suture with Needles" data-product-sku="TM05112150" data-product-manufacturer="Excalibur" data-product-category="Orthopedic Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4v10a4 4 0 0 0 8 0V6a2 2 0 1 1 4 0v2"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">Orthopedic Surgery</span>
             <h3>5.0mm Excalibur Screw Anchor Titanium &ndash; Double Suture with Needles</h3>
-            <p>Excalibur &middot; SKU TM05112150 &middot; $38.00</p>
+            <p>Excalibur &middot; SKU TM05112150 &middot; <span class="price" data-price-aed="38.00">AED 38.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="excalibur-anchor-50" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Abbott Balance Middleweight Guide Wire with MICROGLIDE Coating" data-product-sku="1001780" data-product-manufacturer="Abbott" data-product-category="Radiology & Interventional Radiology">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">Radiology &amp; Interventional Radiology</span>
             <h3>Abbott Balance Middleweight Guide Wire with MICROGLIDE Coating</h3>
-            <p>Abbott &middot; SKU 1001780 &middot; $38.00</p>
+            <p>Abbott &middot; SKU 1001780 &middot; <span class="price" data-price-aed="38.00">AED 38.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="abbott-guidewire" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="AcrySof SA60AT Intraocular Lens" data-product-sku="SA60AT" data-product-manufacturer="Alcon" data-product-category="Ophthalmology">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">Ophthalmology</span>
             <h3>AcrySof SA60AT Intraocular Lens</h3>
-            <p>Alcon &middot; SKU SA60AT &middot; $50.00</p>
+            <p>Alcon &middot; SKU SA60AT &middot; <span class="price" data-price-aed="50.00">AED 50.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="acrysof-lens" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Amcrylate Surgical Bio-Adhesive – Iso Amyl 2-Cyanoacrylate 0.25ml" data-product-sku="" data-product-manufacturer="Amcrylate" data-product-category="General Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Z"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">General Surgery</span>
             <h3>Amcrylate Surgical Bio-Adhesive &ndash; Iso Amyl 2-Cyanoacrylate 0.25ml</h3>
-            <p>Amcrylate &middot; $18.00</p>
+            <p>Amcrylate &middot; <span class="price" data-price-aed="18.00">AED 18.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="amcrylate-adhesive" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Bojin BJ1303B Cannulated Surgical Drill – Cordless Power Tool" data-product-sku="" data-product-manufacturer="Bojin" data-product-category="Orthopedic Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4v10a4 4 0 0 0 8 0V6a2 2 0 1 1 4 0v2"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">Orthopedic Surgery</span>
             <h3>Bojin BJ1303B Cannulated Surgical Drill &ndash; Cordless Power Tool</h3>
-            <p>Bojin &middot; $600.00</p>
+            <p>Bojin &middot; <span class="price" data-price-aed="600.00">AED 600.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="bojin-drill" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Boston Scientific Zebra Straight Tip Guidewire – 0.035in x 150cm" data-product-sku="M0066701120" data-product-manufacturer="Boston Scientific" data-product-category="Radiology & Interventional Radiology">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">Radiology &amp; Interventional Radiology</span>
             <h3>Boston Scientific Zebra Straight Tip Guidewire &ndash; 0.035in x 150cm</h3>
-            <p>Boston Scientific &middot; SKU M0066701120 &middot; $20.00</p>
+            <p>Boston Scientific &middot; SKU M0066701120 &middot; <span class="price" data-price-aed="20.00">AED 20.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="boston-guidewire" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Covidien EEA Circular Stapler with Tri-Staple Technology – 31mm" data-product-sku="TRIEEA31MT" data-product-manufacturer="Covidien" data-product-category="General Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Z"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">General Surgery</span>
             <h3>Covidien EEA Circular Stapler with Tri-Staple Technology &ndash; 31mm</h3>
-            <p>Covidien &middot; SKU TRIEEA31MT &middot; $300.00</p>
+            <p>Covidien &middot; SKU TRIEEA31MT &middot; <span class="price" data-price-aed="300.00">AED 300.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="covidien-eea-stapler" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Covidien Endo GIA Articulating Reload" data-product-sku="EGIA60AMT" data-product-manufacturer="Covidien" data-product-category="General Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Z"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">General Surgery</span>
             <h3>Covidien Endo GIA Articulating Reload</h3>
-            <p>Covidien &middot; SKU EGIA60AMT &middot; $50.00</p>
+            <p>Covidien &middot; SKU EGIA60AMT &middot; <span class="price" data-price-aed="50.00">AED 50.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="covidien-endogia-reload" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Covidien Endo GIA Universal Loading Unit 60mm" data-product-sku="030415" data-product-manufacturer="Covidien" data-product-category="General Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Z"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">General Surgery</span>
             <h3>Covidien Endo GIA Universal Loading Unit 60mm</h3>
-            <p>Covidien &middot; SKU 030415 &middot; $36.00</p>
+            <p>Covidien &middot; SKU 030415 &middot; <span class="price" data-price-aed="36.00">AED 36.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="covidien-endogia-60" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
-        <div class="card product-card">
+        <div class="card product-card" data-product-card data-product-name="Covidien Endo GIA Universal Loading Unit 60mm – 3.5mm" data-product-sku="030414" data-product-manufacturer="Covidien" data-product-category="General Surgery">
           <div class="product-card__media"><div class="media-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Z"/></svg></div></div>
           <div class="product-card__body">
             <span class="product-card__cat">General Surgery</span>
             <h3>Covidien Endo GIA Universal Loading Unit 60mm &ndash; 3.5mm</h3>
-            <p>Covidien &middot; SKU 030414 &middot; $36.00</p>
+            <p>Covidien &middot; SKU 030414 &middot; <span class="price" data-price-aed="36.00">AED 36.00</span></p>
             <div class="product-card__actions">
               <a class="btn btn-secondary btn-sm" href="../product-detail/index.html">View Details</a>
               <a class="btn btn-primary btn-sm" href="../request-quote/index.html">Request Quote</a>
+            
+              <button type="button" class="btn btn-secondary btn-sm" data-add-to-cart="covidien-endogia-60-35" data-i18n="ecommerce.addToCart">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -226,7 +280,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-brand__logo"><img src="../assets/medbay-logo.png" alt="MedBay International"></div>
-        <p>Trusted medical technologies, equipment and clinical solutions for healthcare professionals.</p>
+        <p data-i18n="footer.tagline">Trusted medical technologies, equipment and clinical solutions for healthcare professionals.</p>
         <div class="footer-social" aria-label="Social links">
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3.5 8.75h3v11.75h-3zM10 8.75h2.88v1.6h.04c.4-.76 1.4-1.6 2.9-1.6 3.1 0 3.68 2 3.68 4.7v6.85h-3v-6.07c0-1.45-.03-3.3-2-3.3-2.02 0-2.33 1.58-2.33 3.2v6.17h-3z"/></svg></a>
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
@@ -234,42 +288,42 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4 data-i18n="footer.company">Company</h4>
         <ul>
-          <li><a href="../about/index.html">About</a></li>
-          <li><a href="../contact/index.html">Contact</a></li>
+          <li><a href="../about/index.html" data-i18n="nav.about">About</a></li>
+          <li><a href="../contact/index.html" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Solutions</h4>
+        <h4 data-i18n="footer.solutions">Solutions</h4>
         <ul>
-          <li><a href="../products/index.html">Products</a></li>
-          <li><a href="../specialties/index.html">Specialties</a></li>
-          <li><a href="../services/index.html">Services</a></li>
+          <li><a href="../products/index.html" data-i18n="nav.products">Products</a></li>
+          <li><a href="../specialties/index.html" data-i18n="nav.specialties">Specialties</a></li>
+          <li><a href="../services/index.html" data-i18n="nav.services">Services</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Support</h4>
+        <h4 data-i18n="footer.support">Support</h4>
         <ul>
-          <li><a href="../request-quote/index.html">Request a Quote</a></li>
-          <li><a href="../contact/index.html">Technical Support</a></li>
-          <li><a href="../faqs/index.html">FAQs</a></li>
-          <li><a href="../shipping-delivery/index.html">Shipping &amp; Delivery</a></li>
-          <li><a href="../returns-policy/index.html">Returns Policy</a></li>
-          <li><a href="../payment-methods/index.html">Payment Methods</a></li>
-          <li><a href="../request-unavailable-product/index.html">Request Unavailable Product</a></li>
+          <li><a href="../request-quote/index.html" data-i18n="footer.requestQuote">Request a Quote</a></li>
+          <li><a href="../contact/index.html" data-i18n="footer.technicalSupport">Technical Support</a></li>
+          <li><a href="../faqs/index.html" data-i18n="footer.faqs">FAQs</a></li>
+          <li><a href="../shipping-delivery/index.html" data-i18n="footer.shipping">Shipping &amp; Delivery</a></li>
+          <li><a href="../returns-policy/index.html" data-i18n="footer.returns">Returns Policy</a></li>
+          <li><a href="../payment-methods/index.html" data-i18n="footer.payment">Payment Methods</a></li>
+          <li><a href="../request-unavailable-product/index.html" data-i18n="footer.requestUnavailable">Request Unavailable Product</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
+        <h4 data-i18n="footer.legal">Legal</h4>
         <ul>
-          <li><a href="../privacy-policy/index.html">Privacy</a></li>
-          <li><a href="../terms-conditions/index.html">Terms</a></li>
+          <li><a href="../privacy-policy/index.html" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="../terms-conditions/index.html" data-i18n="footer.terms">Terms</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 MedBay International. All rights reserved.</span>
+      <span>&copy; 2026 MedBay International. <span data-i18n="footer.rights">All rights reserved.</span></span>
       <div class="footer-bottom__legal">
         <a href="../privacy-policy/index.html">Privacy</a>
         <a href="../terms-conditions/index.html">Terms</a>
@@ -288,5 +342,13 @@
     });
   }
 </script>
+<script src="../js/site-config.js"></script>
+<script src="../data/products.js"></script>
+<script src="../data/currency.js"></script>
+<script src="../data/i18n.js"></script>
+<script src="../js/i18n.js"></script>
+<script src="../js/currency.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/search.js"></script>
 </body>
 </html>

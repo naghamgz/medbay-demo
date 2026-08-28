@@ -1,0 +1,11 @@
+# Local secrets / real payment config — never commit real values
+config/payment.js
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Node (only used for the local dev server, not part of the deployed site)
+node_modules/
+npm-debug.log*
