@@ -1,0 +1,176 @@
+/*
+ * Design Tokens — generated from site-dna.json
+ * Source: https://www.dubaimed.com/
+ * Extracted: 2026-08-27T13:46:19.225Z
+ * DO NOT EDIT MANUALLY — regenerate from DNA if values need updating
+ *
+ * Font loading appended manually (Step 9): only Montserrat is used across
+ * the extracted typography table. Source stylesheet
+ * assets/css/14~2kp1s7uaii-389f51.css declares it as a variable font
+ * (weight 100-900) split into subset files; the Latin subset file is
+ * downloaded at assets/fonts/e8f2fbee2754df70-s.p.0fzkl03jw-sdz-08e93b.woff2
+ */
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../../assets/fonts/e8f2fbee2754df70-s.p.0fzkl03jw-sdz-08e93b.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat Fallback';
+  src: local('Arial');
+  ascent-override: 85.79%;
+  descent-override: 22.25%;
+  line-gap-override: 0.0%;
+  size-adjust: 112.83%;
+}
+
+:root {
+  /* ── Typography ── */
+  --font-primary: Montserrat, sans-serif;
+  --font-body: Montserrat, sans-serif;
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-base: NaNpx;
+  --text-md: 10px;
+  --text-lg: 12px;
+  --text-xl: 18px;
+  --text-2xl: 20px;
+  --text-3xl: 30px;
+  --text-4xl: 48px;
+  --text-5xl: 50px;
+  --leading-0: 24px;
+  --leading-1: 20px;
+  --leading-2: ;
+  --leading-3: 62.5px;
+  --leading-4: 28px;
+  --leading-5: 16px;
+  --leading-6: 48px;
+  --leading-7: 26px;
+  --leading-8: 36px;
+  --leading-9: 12.5px;
+  --leading-10: 14px;
+  --leading-11: 22.75px;
+  --font-w: ;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --tracking-0: ;
+  --tracking-1: -1.2px;
+  --tracking-2: -0.75px;
+  --tracking-3: 0.3px;
+  --tracking-4: 0.4px;
+  --tracking-5: 0.35px;
+
+  /* ── Colors ── */
+  --color-text-0: #111111;
+  --color-text-1: lab(22.7325 4.43396 0.288707);
+  --color-text-2: lab(26.8019 1.35387 -4.68303);
+  --color-text-3: lab(8.30603 0.618205 -2.16572);
+  --color-text-4: lab(2.51107 0.242703 -0.886115);
+  --color-text-5: lab(15.7305 0.613764 -2.16959);
+  --color-text-6: lab(35.8484 -2.99515 -4.89215);
+  --color-text-7: lab(100 0 0);
+  --color-text-8: lab(33.7458 58.5651 -3.86609);
+  --color-text-9: lab(8.11897 0.811279 -12.254);
+  --color-text-10: lab(7.78201 -0.0000149012 0);
+  --color-text-11: lab(27.1134 -0.956401 -12.3224);
+  --color-text-12: #ffffff;
+  --color-text-13: lab(35.6337 -1.58697 -10.8425);
+  --color-text-14: lab(47.7841 -0.393182 -10.0268);
+  --color-text-15: lab(85.1236 -0.612259 -3.7138);
+  --color-text-16: lab(48.1666 2.09633 3.80397);
+  --color-text-17: lab(65.9269 -0.832707 -8.17473);
+  --color-bg-0: #ffffff;
+  --color-bg-1: oklab(0.999994 0.0000455678 0.0000200868 / 0.5);
+  --color-bg-2: #F7F9FA;
+  --color-bg-3: lab(8.30603 0.618205 -2.16572);
+  --color-bg-4: oklab(0.999994 0.0000455678 0.0000200868 / 0.9);
+  --color-bg-5: oklab(0 0 0 / 0.2);
+  --color-bg-6: lab(90.6853 0.399232 -1.45452);
+  --color-bg-7: #000000;
+  --color-bg-8: oklab(0.999994 0.0000455678 0.0000200868 / 0.2);
+  --color-bg-9: oklab(0.999994 0.0000455678 0.0000200868 / 0.1);
+  --color-bg-10: lab(96.1634 0.0993311 -0.364041);
+  --color-bg-11: oklab(0.999994 0.0000455677 0.0000200868 / 0.8);
+  --color-bg-12: lab(33.7458 58.5651 -3.86609);
+  --color-bg-13: lab(84.9837 0.601262 -2.17986);
+  --color-border-0: lab(90.6853 0.399232 -1.45452);
+  --color-border-1: lab(47.8878 1.65477 -5.77283);
+  --color-border-2: lab(91.6229 -0.159115 -2.26791);
+  --color-border-3: lab(33.7458 58.5652 -3.86483);
+  --color-border-4: oklab(0.999994 0.0000455678 0.0000200868 / 0.3);
+  --color-border-5: lab(96.286 -0.852436 -2.46847);
+  --color-border-6: oklab(0.999994 0.0000455678 0.0000200868 / 0.2);
+  --color-border-7: lab(65.9269 -0.832707 -8.17473);
+  --color-border-8: oklab(0.209998 -0.00316386 -0.0338463 / 0.1);
+  --color-border-9: #c1c1c1;
+
+  /* ── Shadows ── */
+  --shadow-0: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1.5px 14.5px 2.5px, rgba(0, 0, 0, 0.1) 0px 2px 4px 1.5px;
+  --shadow-1: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1.5px 14.5px 2.5px;
+  --shadow-2: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1.5px 14.5px 2.5px, rgba(0, 0, 0, 0.1) 0px 1px 2px 1.5px;
+  --shadow-3: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0 0 0 / 0.1) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 1.5px 14.5px 2.5px, rgba(0, 0, 0, 0.1) 0px 4px 6px 1.5px;
+  --shadow-4: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.2) 0px 0px 0px 1px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+  --shadow-5: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 1.5px 14.5px 2.5px, rgba(0, 0, 0, 0.1) 0px 2px 4px 1.5px;
+  --shadow-6: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, oklab(0.999994 0.0000455678 0.0000200868 / 0.2) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 1.5px 14.5px 2.5px, rgba(0, 0, 0, 0.1) 0px 4px 6px 1.5px;
+  --shadow-7: rgb(128, 128, 128) 0px 0px 5px 0px;
+
+  /* ── Gradients ── */
+  --gradient-0: linear-gradient(to right top in oklab, rgb(120, 200, 32) 0%, rgb(0, 112, 48) 100%);
+  --gradient-1: radial-gradient(16.2821% 41.3651% at 98.6952% 49.1536%, rgb(120, 200, 32) 0%, rgba(0, 0, 0, 0) 100%);
+  --gradient-2: radial-gradient(16.2821% 41.3651% at 98.6952% 49.1536%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  --gradient-3: linear-gradient(to right top, oklab(0 0 0 / 0.4) 0%, oklab(0 0 0 / 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+  --gradient-4: radial-gradient(16.2895% 41.3801% at 98.5766% 49.0766%, rgb(120, 200, 32) 0%, rgba(0, 0, 0, 0) 100%);
+  --gradient-5: radial-gradient(16.2895% 41.3801% at 98.5766% 49.0766%, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+  --gradient-6: linear-gradient(to right, lab(33.7458 58.5651 -3.86609) 0%, rgb(212, 70, 122) 50%, lab(33.7458 58.5651 -3.86609) 100%);
+
+  /* ── Spacing Scale ── */
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-3: 4px;
+  --space-4: 6px;
+  --space-5: 8px;
+  --space-6: 10px;
+  --space-7: 12px;
+  --space-8: 16px;
+  --space-9: 20px;
+  --space-10: 24px;
+  --space-11: 32px;
+  --space-12: 40px;
+  --space-13: 48px;
+  --space-14: 64px;
+  --space-15: 80px;
+  --space-16: 96px;
+  --space-17: 144px;
+  --space-18: 160px;
+  --space-19: 400px;
+
+  /* ── Border Radius ── */
+  --radius-0: 10px;
+  --radius-1: 14px;
+  --radius-2: 24px;
+  --radius-3: 3.35544e+07px;
+
+  /* ── Transitions ── */
+  --transition-0: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-1: 0.3s cubic-bezier(0, 0, 0.2, 1);
+  --transition-2: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Layout ── */
+  --container-0: 1280px;
+}
+
+/* MedBay brand tokens */
+:root{
+  --brand-green: #78C820;
+  --brand-green-dark: #007030;
+  --brand-red: #E01010;
+  --brand-blue: #0070B0;
+  --brand-text-muted: #666666;
+}

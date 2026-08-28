@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-27T18:41:14.460Z",
+  "reference": "C:\\Users\\Sanasa\\clone-workspace\\references\\screenshots\\1440-section-3-relative.png",
+  "clone": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\03-hero\\clone-section-1787856073616.png",
+  "diffImage": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\03-hero\\diff-section-1787856073616.png",
+  "selector": ".hero",
+  "viewport": 1440,
+  "dimensions": {
+    "reference": {
+      "width": 1440,
+      "height": 720
+    },
+    "clone": {
+      "width": 1440,
+      "height": 720
+    }
+  },
+  "results": {
+    "totalPixels": 1036800,
+    "mismatchedPixels": 378370,
+    "matchPercent": 63.51,
+    "passThreshold": 95,
+    "passed": false
+  },
+  "elementCount": 21
+}

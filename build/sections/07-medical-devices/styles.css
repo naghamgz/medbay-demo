@@ -1,0 +1,489 @@
+/*
+  Section 7 — "Medical Devices" carousel — scoped styles
+  Values sourced from site-dna.json > layout['1440px'/'1024px'/'768px'/'375px'].sections[7]
+  (identical shell/component to sections[6] "Soft Products" — same classes, same
+  padding chain, same rect.height:686) and typography[22,25] (h2/lead, reused
+  verbatim — identical .typo-section-title / .typo-lead classes) plus
+  typography[30,31,32,35] (card title, category pill, "Read more" link, card
+  description), cross-checked against the live SSR HTML (curl
+  https://www.dubaimed.com/, 2026-08-27, block id "S:2") for the exact Tailwind
+  class chain: .wrapper > .mx-auto.max-w-7xl > (.text-center header) +
+  (.relative > .overflow-hidden > .flex.gap-4.pl-4.pr-4 [carousel, 7 slides] +
+  .mt-8.flex.items-center.justify-between [prev/next arrows + 7 dots]).
+
+  .category-pill / .category-pill-hover rules sourced verbatim from
+  assets/css/0s__7n242xu4_-f76612.css (background/border/backdrop-blur/shadow-md/
+  pill radius), same as 06-soft-products.
+
+  box-sizing:border-box is applied to this section from the start (not just after
+  a fix pass) — 06-soft-products round 2 found that `.wrapper`'s
+  max-width:1280px + padding-inline with default content-box sizing inflates the
+  rendered wrapper to 1344px, cascading into oversized flex-basis cards. Same
+  wrapper/container markup here, so the reset is included up front per the
+  orchestrator's dispatch notes.
+
+  Same convention as 00-header/01-nav/03-hero/04-about/05-achievements/
+  06-soft-products: .section-preview-body supplies the font-family that would
+  otherwise only exist on <html>/<body> in the live page.
+*/
+
+.section-preview-body {
+  margin: 0;
+  min-height: 686px; /* DNA sections[7].rect.height @ 1440px */
+  padding: 0;
+  background: var(--color-bg-2); /* #ffffff, matches section backgroundColor */
+  font-family: var(--font-primary);
+}
+
+/* Tailwind Preflight applies box-sizing:border-box globally on the live site;
+   this scoped build has no such global reset, so it is applied locally to
+   this section (see file header — carried over from 06-soft-products' round-2
+   finding, applied from the start here). */
+.medical-devices-section,
+.medical-devices-section *,
+.medical-devices-section *::before,
+.medical-devices-section *::after {
+  box-sizing: border-box;
+}
+
+/* ── Outer <section>: full-bleed, vertical padding only (py-6 sm:py-8 md:py-10 lg:py-12 xl:py-16) ── */
+.medical-devices-section {
+  width: 100%;
+  background-color: var(--color-bg-2); /* rgb(255,255,255) per DNA backgroundColor */
+  padding: 24px 0; /* mobile: py-6 = 24px, DNA confirms 24px 0 24px 0 @ 375px */
+}
+
+@media (min-width: 640px) {
+  .medical-devices-section { padding: 32px 0; } /* sm:py-8 = 32px */
+}
+
+@media (min-width: 768px) {
+  .medical-devices-section { padding: 40px 0; } /* md:py-10 = 40px, DNA confirms 40px 0 40px 0 @ 768px */
+}
+
+@media (min-width: 1024px) {
+  .medical-devices-section { padding: 48px 0; } /* lg:py-12 = 48px, DNA confirms 48px 0 48px 0 @ 1024px */
+}
+
+@media (min-width: 1280px) {
+  .medical-devices-section { padding: 64px 0; } /* xl:py-16 = 64px, DNA confirms 64px 0 64px 0 @ 1440px */
+}
+
+/* ── .wrapper: width:100%; max-width:var(--container-0)=1280px; margin-inline:auto;
+   padding-inline: 16px base, 32px from sm+ (source: assets/css/0s__7n242xu4_-f76612.css) ── */
+.medical-devices-section__wrapper {
+  width: 100%;
+  max-width: var(--container-0); /* 1280px */
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 640px) {
+  .medical-devices-section__wrapper { padding-inline: 32px; }
+}
+
+/* ── .mx-auto.max-w-7xl: same 1280px cap, constrained down to the wrapper's
+   content box (1216px at 1440) since .wrapper's own padding already ate 64px ── */
+.medical-devices-section__container {
+  width: 100%;
+  max-width: var(--container-0); /* 1280px */
+  margin-inline: auto;
+}
+
+/* ── Header block: .text-center.mb-6.sm:mb-8.md:mb-10.lg:mb-12 ── */
+.medical-devices-header {
+  text-align: center;
+  margin-bottom: 24px; /* mb-6 */
+}
+
+@media (min-width: 640px) {
+  .medical-devices-header { margin-bottom: 32px; } /* sm:mb-8 */
+}
+
+@media (min-width: 768px) {
+  .medical-devices-header { margin-bottom: 40px; } /* md:mb-10 */
+}
+
+@media (min-width: 1024px) {
+  .medical-devices-header { margin-bottom: 48px; } /* lg:mb-12 */
+}
+
+/* .typo-section-title: base text-xl(18px)/bold/tracking-tight/uppercase/gray-900,
+   sm:text-2xl(20px), lg:text-3xl(30px) — DNA (typography[22]) confirms
+   30px/700/-0.75px/36px @1440, identical rule reused from 05-achievements /
+   06-soft-products. */
+.medical-devices-header__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--text-xl); /* 18px, mobile default */
+  font-weight: var(--font-bold);
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color: var(--color-text-9);
+}
+
+@media (min-width: 640px) {
+  .medical-devices-header__title { font-size: var(--text-2xl); } /* 20px */
+}
+
+@media (min-width: 1024px) {
+  .medical-devices-header__title {
+    font-size: var(--text-3xl); /* 30px, DNA-confirmed */
+    line-height: var(--leading-8); /* 36px */
+    letter-spacing: var(--tracking-2); /* -0.75px */
+  }
+}
+
+/* .typo-lead: base text-sm(16px)/leading-relaxed(26px)/gray-700 — DNA
+   (typography[25]) confirms @1440, identical rule reused from 05-achievements /
+   06-soft-products. */
+.medical-devices-header__lead {
+  margin: 8px auto 0; /* mt-2 */
+  max-width: 56rem; /* max-w-4xl */
+  font-family: var(--font-primary);
+  font-size: var(--text-sm); /* 16px */
+  font-weight: var(--font-normal);
+  line-height: var(--leading-7); /* 26px */
+  color: var(--color-text-11);
+}
+
+@media (min-width: 640px) {
+  .medical-devices-header__lead { margin-top: 12px; } /* sm:mt-3 */
+}
+
+/* ── Carousel shell: .relative > .overflow-hidden > .flex.gap-4.pl-4.pr-4 ── */
+.medical-devices-carousel {
+  position: relative;
+}
+
+.medical-devices-carousel__viewport {
+  overflow: hidden;
+}
+
+.medical-devices-carousel__track {
+  display: flex;
+  gap: 16px; /* gap-4 */
+  padding-left: 16px; /* pl-4 */
+  padding-right: 16px; /* pr-4 */
+  scroll-snap-type: x mandatory;
+}
+
+/* Slide: flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%] min-w-0 —
+   1 card visible at 375/768 down to sm, 2 at sm-lg, 4 at lg+ (7 total slides,
+   DNA-confirmed via live curl: Sofwave, Ultraformer MPT, Volnewmer, Secret
+   Duo, Viora V Series, SkinPen, Etherea MX). Native horizontal scroll-snap
+   substitutes for the live site's embla-carousel JS transform; data-carousel-*
+   hooks stub the prev/next button wiring for a future Step 11 pass. */
+.medical-devices-carousel__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .medical-devices-carousel__slide { flex: 0 0 50%; }
+}
+
+@media (min-width: 1024px) {
+  .medical-devices-carousel__slide { flex: 0 0 25%; }
+}
+
+/* Default captured slide position: reference screenshot
+   (references/screenshots/1440-section-7-w-full.png) was pixel-sampled
+   directly (sharp raw-buffer row scans at y=400 and y=604-610) rather than
+   assumed from the 06-soft-products flush-card formula, because this
+   carousel's captured scroll offset does NOT land the active slide flush
+   against the container edge the way 06-soft-products did — there's a
+   partially-visible previous slide (Ultraformer MPT, ~63px sliver) peeking
+   in on the left, confirming this capture sits at a non-"flush" embla
+   scroll position. Measured card borders at 1024px+ (25%-basis, box-sizing
+   fix applied): slide1(Ultraformer MPT) right edge ~176px, slide2(Volnewmer)
+   112..487 -> measured 192..487 (296px card), slide3(Secret Duo) 504..799,
+   slide4(Viora V Series) 816..1111, slide5(SkinPen) left edge 1128 (cut by
+   the viewport's right edge, consistent with the same peek behavior on the
+   trailing side). Pagination dots confirm slide index 2 (Volnewmer, 3rd dot)
+   is the active/current slide (see .medical-devices-carousel__dot--active
+   below, pixel-sampled from the same screenshot at y=604-610: dot0
+   1152-1159, dot1 1176-1183, ACTIVE PILL 1200-1231, dot3 1248-1255, dot4
+   1272-1279, dot5 1296-1303, dot6 1320-1327).
+   Solving position(i) = 128 + i*312 - S for the measured slide2 left edge
+   (192) with i=2 gives S=560, and this value independently reproduces
+   slide3/slide4/slide5's measured left edges exactly (504/816/1128) —
+   confirmed algebraically, not just visually. Calibrated for the 1024px+
+   breakpoint where the container has reached its max-width cap (1280px)
+   and card width is therefore fixed (296px); at intermediate widths below
+   that cap the shift is proportionally imprecise and would need a
+   percentage-based revisit in a later responsive-carousel pass, same
+   caveat as 06-soft-products. */
+@media (min-width: 1024px) {
+  .medical-devices-carousel[data-active-slide="2"] .medical-devices-carousel__track {
+    transform: translateX(-560px);
+  }
+}
+
+/* ── Card link wrapper: <a class="group block h-full cursor-pointer"> ── */
+.product-card {
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Card frame: relative h-full rounded-2xl border border-gray-200 p-2 md:rounded-3xl md:p-3 ──
+   Live DOM wraps each card in a "glowing effect" component (mouse-tracked radial
+   gradient ring, --active driven by JS on pointermove). Same stub pattern as
+   05-achievements/06-soft-products: static bordered card with an inert glow
+   layer (data-glow-card hook for Step 11 mouse-tracking JS) since default/rest
+   state has --active:0. */
+.product-card__frame {
+  position: relative;
+  height: 100%;
+  border-radius: 16px; /* rounded-2xl */
+  border: 1px solid var(--color-border-2); /* border-gray-200 */
+  padding: 8px; /* p-2 */
+  background-color: var(--color-bg-2);
+}
+
+@media (min-width: 768px) {
+  .product-card__frame {
+    border-radius: var(--radius-2); /* rounded-3xl = 24px */
+    padding: 12px; /* md:p-3 */
+  }
+}
+
+/* Glow ring layer — inert at rest (opacity/--active:0 in the live site's default state) */
+.product-card__glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* ── Card inner: relative flex h-full flex-col overflow-hidden rounded-xl ── */
+.product-card__inner {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px; /* rounded-xl */
+}
+
+/* ── Media: relative aspect-video w-full overflow-hidden rounded-xl bg-zinc-100 ── */
+.product-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9; /* aspect-video */
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px; /* rounded-xl */
+  background-color: var(--color-bg-10); /* bg-zinc-100 */
+}
+
+.product-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px; /* rounded-xl */
+  transition: transform var(--transition-1); /* duration-300 */
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05); /* group-hover:scale-105 */
+}
+
+/* ── Category pill overlay: <div class="absolute top-2 left-4 z-10"><button class="category-pill category-pill-hover">
+   Rule sourced verbatim from assets/css/0s__7n242xu4_-f76612.css (typography[31]
+   only captured the text properties: 10px/500/uppercase/12.5px line-height/maroon). ── */
+.product-card__pill {
+  position: absolute;
+  top: 8px; /* top-2 */
+  left: 16px; /* left-4 */
+  z-index: 10;
+  display: inline-block;
+  border: 1px solid var(--color-border-4); /* rgba(255,255,255,0.3) */
+  background-color: var(--color-bg-11); /* rgba(255,255,255,0.8) */
+  padding: 2px 8px; /* padding-block .5 / padding-inline 2 */
+  border-radius: var(--radius-3); /* fully rounded pill */
+  font-family: var(--font-primary);
+  font-size: var(--text-md); /* 10px */
+  line-height: var(--leading-9); /* 12.5px, leading-tight */
+  font-weight: var(--font-medium);
+  color: var(--color-text-8); /* var(--color-maroon) */
+  text-transform: uppercase;
+  box-shadow: var(--shadow-1); /* shadow-md */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: background-color var(--transition-0); /* category-pill-hover */
+}
+
+.product-card__pill:hover {
+  background-color: var(--color-bg-2); /* hover:bg-white (fully opaque) */
+}
+
+/* ── Body: flex flex-1 flex-col p-5 ── */
+.product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px; /* p-5 */
+}
+
+/* Title: mt-2 text-base/7 font-bold text-gray-900 group-hover:text-maroon —
+   DNA (typography[30]) confirms 16px/700/28px line-height. */
+.product-card__title {
+  margin-top: 8px; /* mt-2 */
+  font-family: var(--font-primary);
+  font-size: var(--text-sm); /* 16px */
+  font-weight: var(--font-bold);
+  line-height: var(--leading-4); /* 28px */
+  color: var(--color-text-9); /* gray-900 */
+  transition: color var(--transition-0);
+}
+
+.product-card:hover .product-card__title {
+  color: var(--color-text-8); /* group-hover:text-maroon */
+}
+
+/* Description wrapper: carries flex:1 (mt-2 flex-1) as the actual flex
+   item so the -webkit-line-clamp element itself is NOT a flex item.
+   Chromium blockifies `display:-webkit-box` to `display:flow-root` when
+   that element is a direct flex/grid item, silently breaking
+   -webkit-line-clamp (found and fixed in 06-soft-products round 2; applied
+   from the start here). Wrapping in a block-level, non-flex-item ancestor
+   keeps -webkit-box intact and restores the 2-line ellipsis truncation. */
+.product-card__desc-wrap {
+  margin: 8px 0 0; /* mt-2 */
+  flex: 1;
+  min-height: 0;
+}
+
+/* Description: text-sm/6 text-gray-500 line-clamp-2 —
+   DNA (typography[35]) confirms 14px/400/24px line-height. */
+.product-card__desc {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--text-xs); /* 14px */
+  font-weight: var(--font-normal);
+  line-height: var(--leading-0); /* 24px */
+  color: var(--color-text-14); /* gray-500 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Read more link: mt-4 flex gap-3 > span.inline-flex.items-center.gap-1.5
+   text-sm text-gray-700 hover:text-maroon font-medium —
+   DNA (typography[32]) confirms 14px/500/20px line-height. */
+.product-card__link {
+  margin-top: 16px; /* mt-4 (parent .flex.gap-3 collapses to this element) */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* gap-1.5 */
+  font-family: var(--font-primary);
+  font-size: var(--text-xs); /* 14px */
+  font-weight: var(--font-medium);
+  line-height: var(--leading-1); /* 20px */
+  color: var(--color-text-11); /* gray-700 */
+  transition: color var(--transition-1); /* duration-300 (transition-colors) */
+}
+
+.product-card:hover .product-card__link {
+  color: var(--color-text-8); /* hover:text-maroon */
+}
+
+.product-card__link-icon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-1); /* duration-300 */
+}
+
+.product-card:hover .product-card__link-icon {
+  transform: translate(2px, -2px) scale(1.1); /* group-hover/link:translate-x-0.5 -translate-y-0.5 scale-110 */
+}
+
+/* ── Controls row: mt-8 flex items-center justify-between ── */
+.medical-devices-carousel__controls {
+  margin-top: 32px; /* mt-8 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.medical-devices-carousel__arrows {
+  display: flex;
+  gap: 16px; /* gap-4 */
+}
+
+.medical-devices-carousel__actions {
+  display: flex;
+  gap: 16px; /* gap-4 */
+}
+
+/* Prev/next buttons: DNA-confirmed via site-dna.json component-button
+   entries "Previous slide"/"Next slide" (same slider-arrow component reused
+   across the page's carousels, e.g. main>section:nth-child(1)'s hero
+   arrows, and 06-soft-products' round-2 fix): 32×32px, fully-rounded
+   (borderRadius:3.35544e+07px, matches --radius-3), 1px solid border in
+   lab(47.8878 1.65477 -5.77283) (exact match for --color-border-1 in
+   tokens.css), transparent background (backgroundColor:"rgba(0, 0, 0, 0)"),
+   icon color lab(22.7325 4.43396 0.288707) (exact match for
+   --color-text-1). */
+.medical-devices-carousel__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-border-1);
+  border-radius: var(--radius-3); /* fully rounded / pill */
+  background-color: transparent;
+  color: var(--color-text-1);
+  cursor: pointer;
+  transition: background-color var(--transition-0), color var(--transition-0);
+}
+
+.medical-devices-carousel__arrow:hover {
+  background-color: var(--color-bg-10); /* hover:bg-accent, approx zinc-100 */
+  color: var(--color-text-9); /* hover:text-accent-foreground */
+}
+
+.medical-devices-carousel__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Pagination dots: 7 dots (one per slide), 3rd one (index 2, Volnewmer)
+   active — matches data-active-slide="2" and the pixel-derived -560px
+   shift above. This section's own 7-dot instance was not captured by the
+   DNA's typography/button walk (same gap as 06-soft-products — only the
+   hero carousel's dark-background dot component was recorded there,
+   which does not apply on this white background). Size, gap, colors, and
+   the wide "active" pill shape were pixel-sampled directly from
+   references/screenshots/1440-section-7-w-full.png at y=604-610: inactive
+   dot 8×8px solid rgb(212,212,216) (~gray-300, no matching DNA token),
+   active pill 32×8px filled rgb(155,0,88) (exact match for
+   --color-text-8's maroon), 16px gap between dots (matches --space-8 /
+   gap-4 used throughout this section) — identical values to
+   06-soft-products' round-2 pixel-sampled dots, reused directly since both
+   carousels share the same white-background component instance. */
+.medical-devices-carousel__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-3);
+  background-color: rgb(212, 212, 216); /* inactive, pixel-sampled */
+  cursor: pointer;
+  transition: background-color var(--transition-0), width var(--transition-0);
+}
+
+.medical-devices-carousel__dot--active {
+  width: 32px;
+  background-color: var(--color-text-8); /* active, maroon */
+}

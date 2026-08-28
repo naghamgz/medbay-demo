@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-27T19:37:13.601Z",
+  "reference": "C:/Users/Sanasa/clone-workspace/build/sections/03b-shaping-future/reference-crop.png",
+  "clone": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\03b-shaping-future\\clone-section-1787859433015.png",
+  "diffImage": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\03b-shaping-future\\diff-section-1787859433015.png",
+  "selector": "section.shaping",
+  "viewport": 1440,
+  "dimensions": {
+    "reference": {
+      "width": 1440,
+      "height": 348
+    },
+    "clone": {
+      "width": 1440,
+      "height": 348
+    }
+  },
+  "results": {
+    "totalPixels": 501120,
+    "mismatchedPixels": 32476,
+    "matchPercent": 93.52,
+    "passThreshold": 95,
+    "passed": false
+  },
+  "elementCount": 10
+}

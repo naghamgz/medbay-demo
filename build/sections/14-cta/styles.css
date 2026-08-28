@@ -1,0 +1,4 @@
+.cta-section{padding:48px 16px;background:var(--color-bg-2);text-align:center}
+.cta-section .typo-section-title{font-family:var(--font-primary);font-size:30px;font-weight:700}
+.cta-section .btn{display:inline-block;padding:10px 18px;background:var(--brand-green);color:var(--color-bg-0,#fff);border-radius:8px}
+.cta-section .btn:hover{background:var(--brand-green-dark)}

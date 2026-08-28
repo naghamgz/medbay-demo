@@ -1,0 +1,3 @@
+.services-section{padding:48px 16px;background:var(--color-bg-2)}
+.services-section .typo-section-title{font-family:var(--font-primary);font-size:30px;font-weight:700;letter-spacing:var(--tracking-2);margin:0 0 8px}
+.services-section .typo-lead{font-size:16px;color:var(--color-text-2);max-width:900px}

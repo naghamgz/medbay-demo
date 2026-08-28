@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBay International — Section 2: Main (page wrapper)</title>
+<link rel="stylesheet" href="../../styles/tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="section-preview-body">
+
+<!--
+  Section 2 — <main class="relative isolate"> page wrapper
+  Source: site-dna.json layout['1440px'].sections[2] (tag: main, rect 1440x10632 at extraction time)
+
+  IMPORTANT — flat-DOM-walk duplication, same pattern documented in 01-nav/notes.md:
+  The extractor's landmark query (header, nav, main, section, footer) matched every
+  <section> descendant of <main> too, producing sections[3..18] as SEPARATE flat DNA
+  entries even though they are main's own children (main.childLayout confirms 16
+  children: 1 absolute decorative div + 15 <section> elements, matching indices 3-18
+  minus the trailing index-18 section which sits after </footer>, likely a cookie /
+  consent banner outside <main>).
+
+  This dispatch (section_index 2) therefore builds ONLY main's own, non-duplicated
+  markup:
+    1. The <main> landmark itself (position/stacking context)
+    2. childLayout[0]: a full-height absolute decorative div that is NOT captured as
+       its own flat section index anywhere else in the DNA
+
+  It does NOT build the 15 real content <section> elements — those are indices 3-18,
+  each dispatched and built independently into their own build/sections/NN-slug/
+  folder. At final page assembly, the orchestrator should mount sections 3-18 (in DOM
+  order) as children of THIS <main>, after the decorative div, and should skip
+  building a second copy of them here (mirrors the header/nav dedupe rule already
+  established in 01-nav/notes.md).
+-->
+<main class="site-main">
+
+  <!-- childLayout[0]: div, 1440x10632 @ extraction time, position:absolute, block.
+       No background/gradient/image was captured for this element in colors/assets —
+       see notes.md "Decorative div — unresolved visual content". Rendered here as an
+       inert, non-visual layer so it doesn't block clicks or misrepresent color data
+       that wasn't actually confirmed. -->
+  <div class="site-main-decor" aria-hidden="true"></div>
+
+  <!-- Sections 3–18 mount here, in DOM order, from their own build folders:
+       03-* (hero, section/relative w-full)
+       04-* (wrapper, pt-8 pb-12 ...)
+       05-* .. 08-* (w-full py-6 sm:py-8 ...)
+       09-* (relative py-8 ... overflow-hidden — has its own stacking context)
+       10-* .. 11-* (wrapper py-8 ...)
+       12-* (relative py-8 ... overflow-hidden)
+       13-* .. 14-* (wrapper py-8 ...)
+       15-* (w-full py-6 ...)
+       16-* (w-full overflow-hidden py-4 ...)
+       Section 17 (footer) and section 18 sit AFTER </main>, not inside it. -->
+  <div class="site-main-slot" data-slot-sections="3-16"></div>
+
+</main>
+
+</body>
+</html>

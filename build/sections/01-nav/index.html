@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBay International — Section 1: Nav</title>
+<link rel="stylesheet" href="../../styles/tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="section-preview-body">
+
+<!--
+  Section 1 — nav[aria-label="Global"]
+  Source: site-dna.json layout['1440px'].sections[1] (tag: nav, rect 1216x60 @ left:112,top:40)
+
+  IMPORTANT — DOM-duplicate notice for the orchestrator:
+  This <nav> is NOT a sibling of section 0's header; it is header's ONE AND ONLY
+  child (layout['1440px'].sections[0].childCount === 1, childLayout[0].tag === "nav",
+  same 1216x60 dimensions as this section's own rect). The extractor's broad selector
+  ("header, nav, main, section, footer, ...") matched both the ancestor <header> and
+  this descendant <nav>, producing two "sections" for what is a single DOM subtree on
+  the live page. Section 0 (00-header) already built and comparator-approved
+  (96.68% match, passed) the COMPLETE nav markup nested inside the header pill.
+
+  This file reconstructs the nav in isolation (matching this section's own crop,
+  references/screenshots/1440-section-1-flex.png, 1216x60) for protocol compliance,
+  reusing the identical, already-validated markup/classes from 00-header/index.html.
+  It is functionally identical content to what .site-header > .site-nav already
+  contains. Do NOT insert a second, separate <nav> into the assembled page — at
+  full-page assembly (Step 11/12), use ONLY section 0's header (which already
+  contains this nav); treat this section-1 build as a validation artifact only.
+
+  A ".header-shell" wrapper reproduces the header's own background/blur here
+  (background-color: var(--color-bg-1) + backdrop-filter: blur(12px)) because nav's
+  own computed background is transparent (rgba(0,0,0,0) per DNA) — the frosted-glass
+  pixels visible in the reference crop are actually the ancestor header's box
+  showing through, not a nav-owned style. See notes.md.
+-->
+<div class="header-shell">
+  <nav class="site-nav" aria-label="Global">
+
+    <div class="nav-logo">
+      <a href="/" class="nav-logo-link" aria-label="MedBay International — home">
+        <img
+          class="nav-logo-img"
+          src="../../../assets/medbay-logo.png"
+          alt="MedBay International"
+          width="180"
+          height="40"
+          style="object-fit:contain">
+      </a>
+    </div>
+
+    <!-- div:nth-child(2), "flex lg:hidden": mobile menu open button. Hidden at this
+         breakpoint (rect was 0x0 in DNA), restored below 1024px. -->
+    <div class="nav-mobile-toggle">
+      <button type="button" class="mobile-menu-btn" aria-label="Open main menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"></path></svg>
+      </button>
+    </div>
+
+    <div class="nav-links">
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-btn">
+          Medical Devices
+          <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path></svg>
+        </button>
+      </div>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-btn">
+          Soft Products
+          <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path></svg>
+        </button>
+      </div>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-btn">
+          Services
+          <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path></svg>
+        </button>
+      </div>
+      <a href="/media-center" class="nav-link">Media Center</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+      </button>
+    </div>
+
+  </nav>
+</div>
+
+</body>
+</html>

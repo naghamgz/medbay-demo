@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBay International — Section 0: Header</title>
+<link rel="stylesheet" href="../../styles/tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="section-preview-body">
+
+<!--
+  Section 0 — sticky header / global nav
+  Source: header.sticky (site-dna.json layout['1440px'].sections[0])
+  Selector chain confirmed via alignmentMap + interactiveStates:
+    header > nav[aria-label="Global"] > div:nth-child(1)  = logo (flex lg:flex-1, 185px @1440)
+    header > nav[aria-label="Global"] > div:nth-child(2)  = mobile menu toggle (flex lg:hidden, hidden ≥1024px)
+    header > nav[aria-label="Global"] > div:nth-child(3)  = primary links (fixed 783px @1440)
+    header > nav[aria-label="Global"] > div:nth-child(4)  = actions (flex lg:flex-1 lg:justify-end, 185px @1440, theme toggle only)
+  Corrected in comparator round 2 (9.48% -> re-verify): actions div was previously
+  mis-assumed to contain the mobile toggle button and to size to its content; DNA
+  childLayout + pixel scan of the reference confirm it is a flex:1 justify-end column
+  matching .nav-logo, and the mobile toggle lives in its own div:nth-child(2).
+-->
+<header class="site-header">
+  <nav class="site-nav" aria-label="Global">
+
+    <div class="nav-logo">
+      <a href="/" class="nav-logo-link" aria-label="MedBay International — home">
+        <img
+          class="nav-logo-img"
+          src="../../../assets/medbay-logo.png"
+          alt="MedBay International"
+          width="180"
+          height="40"
+          style="object-fit:contain">
+      </a>
+    </div>
+
+    <!-- div:nth-child(2), "flex lg:hidden": mobile menu open button. Hidden at this
+         breakpoint (rect was 0x0 in DNA), restored below 1024px. -->
+    <div class="nav-mobile-toggle">
+      <button type="button" class="mobile-menu-btn" aria-label="Open main menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"></path></svg>
+      </button>
+    </div>
+
+    <div class="nav-links">
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-btn">
+          Medical Devices
+          <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path></svg>
+        </button>
+      </div>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-btn">
+          Soft Products
+          <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path></svg>
+        </button>
+      </div>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-dropdown-btn">
+          Services
+          <svg class="nav-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path></svg>
+        </button>
+      </div>
+      <a href="/media-center" class="nav-link">Media Center</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button type="button" class="theme-toggle" aria-label="Toggle theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+      </button>
+    </div>
+
+  </nav>
+</header>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-27T15:09:05.806Z",
+  "reference": "C:/Users/Sanasa/clone-workspace/references/screenshots/1440-section-1-flex.png",
+  "clone": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\01-nav\\raw\\clone-section-1787843345541.png",
+  "diffImage": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\01-nav\\raw\\diff-section-1787843345541.png",
+  "selector": ".site-nav",
+  "viewport": 1440,
+  "dimensions": {
+    "reference": {
+      "width": 1216,
+      "height": 60
+    },
+    "clone": {
+      "width": 1216,
+      "height": 60
+    }
+  },
+  "results": {
+    "totalPixels": 72960,
+    "mismatchedPixels": 1076,
+    "matchPercent": 98.53,
+    "passThreshold": 95,
+    "passed": true
+  },
+  "elementCount": 13
+}

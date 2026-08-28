@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-27T19:26:58.849Z",
+  "reference": "C:\\Users\\Sanasa\\clone-workspace\\references\\screenshots\\1440-section-5-w-full.png",
+  "clone": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\05-achievements\\clone-section-1787858818383.png",
+  "diffImage": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\05-achievements\\diff-section-1787858818383.png",
+  "selector": "section.achievements-section",
+  "viewport": 1440,
+  "dimensions": {
+    "reference": {
+      "width": 1440,
+      "height": 594
+    },
+    "clone": {
+      "width": 1440,
+      "height": 586
+    }
+  },
+  "results": {
+    "totalPixels": 855360,
+    "mismatchedPixels": 23001,
+    "matchPercent": 97.31,
+    "passThreshold": 95,
+    "passed": true
+  },
+  "elementCount": 21
+}

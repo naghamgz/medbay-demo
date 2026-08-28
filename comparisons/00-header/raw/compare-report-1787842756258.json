@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-27T14:59:16.494Z",
+  "reference": "C:/Users/Sanasa/clone-workspace/references/screenshots/1440-section-0-sticky.png",
+  "clone": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\00-header\\raw\\clone-section-1787842756258.png",
+  "diffImage": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\00-header\\raw\\diff-section-1787842756258.png",
+  "selector": ".site-header",
+  "viewport": 1440,
+  "dimensions": {
+    "reference": {
+      "width": 1280,
+      "height": 60
+    },
+    "clone": {
+      "width": 1280,
+      "height": 60
+    }
+  },
+  "results": {
+    "totalPixels": 76800,
+    "mismatchedPixels": 2551,
+    "matchPercent": 96.68,
+    "passThreshold": 95,
+    "passed": true
+  },
+  "elementCount": 14
+}

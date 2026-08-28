@@ -1,0 +1,331 @@
+/*
+ * Section 3 — hero slide carousel
+ * Values sourced from site-dna.json:
+ *   layout['1440px'].sections[3]              (section box: 1440x720, relative, overflow visible)
+ *   typography[] filtered to top in [-10,720] (h1/subtitle/link/button font+color specs)
+ *   components['1440px'].buttons[4,5,6,23,24,25..35] (CTA / arrow / pagination geometry, radius, shadow, transition)
+ *   components['1440px'].media[5,6]           (slide background images, object-fit: cover)
+ *   colors.gradients[3]                       (dark diagonal overlay for text legibility)
+ *   colors.text / colors.background / colors.border (mapped to tokens.css --color-* vars)
+ */
+
+.section-preview-body {
+  margin: 0;
+  min-height: 720px;
+  padding: 0;
+  background: var(--color-bg-2);
+  font-family: var(--font-primary);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+
+.hero__viewport {
+  position: relative;
+  width: 100%;
+  height: 720px;
+  overflow: hidden;
+  background-color: var(--color-bg-2);
+}
+
+.hero__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.hero__slide.is-active {
+  display: block;
+}
+
+.hero__slide--stub {
+  display: none;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* RELFYDESS slide (round 3 fix): pixel cross-correlation against the reference
+   screenshot (patch search across box edge, text, vial, and pedestal regions)
+   found a consistent uniform -8px horizontal offset with zero vertical/scale
+   component — the asset's cover-crop math centers it 8px too far right versus
+   the live page. Nudged via object-position calc() rather than re-deriving the
+   crop math, since the DNA capture itself doesn't record a non-center
+   object-position for this element. */
+.hero__slide[data-slide-index="1"] .hero__bg {
+  object-position: calc(50% - 8px) center;
+}
+
+/* Glow overlay — round 3 rebuild (see notes.md "Glow overlay — empirical fit").
+   colors.gradients has three entries usable here: [3] a dark "to right top"
+   legibility diagonal, and two near-duplicate magenta/white radial pairs
+   ([1],[2] and [4],[5]) at ~98.7%/49.15%. Comparator round 2 flagged the
+   radial pair as completely missing. Testing against the reference screenshot
+   (references/screenshots/1440-section-3-relative.png) showed:
+   1) applying gradient-3 at its literal DNA alpha (0.4/0.1) made the WHOLE
+      slide far darker than the reference at every sampled point (e.g. ref
+      139,142,151 vs raw asset 139,142,151 — an exact match with NO tint —
+      but the old overlay rendered 125,128,136 there). The reference is barely
+      tinted at all outside the bottom-left corner, so gradient-3 was dropped
+      entirely rather than reproduced at its captured alpha.
+   2) the radial pair's literal captured position (~98.7%,49.15%, i.e.
+      right-mid, behind the product) does NOT match reality — a saturation-
+      boosted crop of the reference (see agent log) shows the magenta glow
+      concentrated at the BOTTOM-LEFT corner instead, fading out by y≈450.
+      No pseudoElements/context entry ties these gradients to a specific box,
+      so the DNA's own coordinate space for them is unrecoverable; positioning
+      here is corner-anchored (0% 100%) and reverse-fit against 10 reference
+      sample points (bg color at grid coords, before/after diffed against the
+      raw un-tinted asset) rather than the raw captured percentages. */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(42% 52% at 0% 100%, rgba(120,200,32,0.08) 0%, rgba(120,200,32,0) 62%),
+    radial-gradient(42% 52% at 0% 100%, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0) 62%);
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: absolute;
+  top: 349px; /* DNA typography[] top:349 — matches the SOFWAVE slide (slide 0) */
+  left: 144px;
+  z-index: 2;
+  /* DNA has no maxWidth field for this content div (layout['1440px'].sections[3]
+     reports maxWidth:"none" on the section, and the child div has no captured
+     constraint). Round 1 guessed 480px, which wraps the RELFYDESS subtitle to
+     2 lines — the reference screenshot shows it on 1 line. Round 2: measured
+     the reference subtitle's dark-pixel text extent directly (x:146-811,
+     content left:144) => ~665px needed; widened to 680px so it renders on one
+     line without touching the product image on the right. */
+  max-width: 680px;
+}
+
+/* RELFYDESS slide (round 2 fix): the reference screenshot's title ink starts
+   ~25px higher than the DNA's top:349 value produces once rendered (verified
+   via calibrated pixel scan: reference title ink-top 336px, this rendering
+   engine's own title ink-to-box offset is +12px measured on this same font/
+   size, implying an actual box top of ~324px for THIS slide). This is
+   consistent with the content block being vertically centered as a whole
+   within the hero and RELFYDESS's block being ~56px taller than SOFWAVE's
+   (extra legal-text lines) — a taller centered block sits higher. The DNA's
+   single "top:349" sample was for the shorter (SOFWAVE) block; slide-specific
+   values were not separately captured for RELFYDESS in typography[], so this
+   is a screenshot-measured correction, not a raw DNA field. */
+.hero__slide[data-slide-index="1"] .hero__content {
+  top: 324px;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--text-5xl); /* 50px */
+  font-weight: var(--font-extrabold); /* 800 */
+  line-height: var(--leading-3); /* 62.5px */
+  color: var(--color-text-5);
+  letter-spacing: normal;
+}
+
+.hero__subtitle {
+  margin: var(--space-10) 0 0; /* 24px */
+  font-family: var(--font-primary);
+  font-size: var(--text-2xl); /* 20px */
+  font-weight: var(--font-medium); /* 500 */
+  line-height: var(--leading-4); /* 28px */
+  color: var(--color-text-2);
+}
+
+/* Legal/regulatory block — RELFYDESS slide only. DNA typography[] carries one
+   matching entry ("Approved by the Emirates Drug Establishment (EDE)",
+   occurrences:2, top:458, fontSize 12px/16px/500, color --color-text-2) whose
+   captured left:1600 was off-canvas capture noise; horizontal position
+   corrected to the content column here. The "Registration No." line has no
+   DNA text entry at all (confirmed absent from site-dna.json) — its wording
+   was read directly from the reference screenshot pixels; see notes.md.
+   margin-top: calibrated pixel-scan of the reference (ink-top of this block
+   vs. calibrated subtitle box-bottom) measured a ~24px gap, matching the same
+   --space-10 rhythm used between title/subtitle and legal/CTA elsewhere on
+   this slide, not the 4px originally guessed from the DNA's raw (uncalibrated)
+   top:458 value. */
+.hero__legal {
+  margin-top: var(--space-10); /* 24px */
+}
+
+.hero__legal-line {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--text-lg); /* 12px */
+  font-weight: var(--font-medium); /* 500 */
+  line-height: var(--leading-5); /* 16px */
+  color: var(--color-text-2);
+}
+
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8); /* 16px */
+  margin-top: var(--space-10); /* 24px */
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5) var(--space-8); /* 8px 16px */
+  border-radius: var(--radius-3); /* pill */
+  font-family: var(--font-primary);
+  font-size: var(--text-xs); /* 14px */
+  font-weight: var(--font-medium); /* 500 */
+  line-height: var(--leading-1); /* 20px */
+  text-decoration: none;
+  box-shadow: var(--shadow-1);
+  transition: var(--transition-1);
+  cursor: pointer;
+}
+
+.btn--light {
+  /* Primary button: green background, white text */
+  background-color: var(--brand-green);
+  color: var(--color-bg-0);
+}
+
+.btn--light:hover {
+  background-color: var(--brand-green-dark);
+}
+
+.btn--dark {
+  /* Secondary button: white background, blue text/border */
+  background-color: var(--color-bg-0);
+  color: var(--brand-blue);
+  border: 1px solid var(--brand-blue);
+}
+
+.btn--dark:hover {
+  background-color: #f0f8ff; /* subtle blue tint on hover */
+}
+
+/* Previous/Next arrows — components['1440px'].buttons[23,24]: 32x32, 1px border,
+   pill radius, transparent bg, 0.15s cubic-bezier(0.4,0,0.2,1) transition.
+   Vertical center (top:340,left:20 in DNA) resolves to 50% + translateY given
+   the section's 720px height and -4px capture-time offset noise. */
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-3);
+  border: 1px solid var(--color-border-1);
+  background-color: transparent;
+  color: var(--color-text-1);
+  box-shadow: var(--shadow-1);
+  transition: var(--transition-0);
+  cursor: pointer;
+}
+
+.hero__arrow--prev {
+  left: 20px;
+}
+
+.hero__arrow--next {
+  right: 20px;
+}
+
+.hero__arrow:hover {
+  background-color: var(--color-bg-9);
+}
+
+/* Pagination — components['1440px'].buttons[25..35]: 11 items total (round 2
+   recount — one 24x8 "active" pill + ten 8x8 dots, white/0.5 to /0.9), pill
+   radius, 0.15s transition. Horizontal position: round 1 wrongly flush-aligned
+   this to the content column's left edge; a bright-pixel scan of the
+   reference screenshot (y=691 across full width) found the active pill's true
+   left edge at x=644px, which back-solves — given the known 11-item width math
+   (10 x 8px dots + 1 x 24px pill + 10 x 8px gaps = 184px) — to a strip
+   horizontally CENTERED on the 1440px viewport (628px-812px), confirmed
+   visually against the reference's full-width pagination-row crop. */
+.hero__pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--space-10); /* 24px, matches measured ~25px offset from hero bottom */
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: var(--space-5); /* 8px */
+}
+
+.hero__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-3);
+  background-color: var(--color-bg-1); /* white/0.5 */
+  transition: var(--transition-0);
+  cursor: pointer;
+}
+
+.hero__dot.is-active {
+  width: 24px;
+  background-color: var(--color-bg-4); /* white/0.9 */
+}
+
+/* ── Responsive ──
+   DNA confirms a fixed 720px hero height at 1440/1024/768px (layout[bp].sections[3]).
+   No 1440-equivalent typography/geometry was captured at smaller breakpoints, so
+   below this the source's own Tailwind hints (h1: "text-center sm:text-left
+   text-[min(10vw,50px)]"; subtitle: "text-base text-center sm:text-left sm:text-lg
+   lg:text-xl") are reproduced directly rather than guessing pixel positions. */
+@media (max-width: 1023px) {
+  .hero__content {
+    left: 24px;
+    right: 24px;
+    max-width: none;
+  }
+
+  .hero__title {
+    font-size: min(10vw, 50px);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero__content {
+    text-align: center;
+  }
+
+  .hero__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .hero__ctas {
+    justify-content: center;
+  }
+
+  /* .hero__pagination is already horizontally centered at all breakpoints
+     via the base rule (round 2 fix); no mobile-specific override needed. */
+}

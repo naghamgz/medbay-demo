@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBay International — Section 6: Soft Products</title>
+<link rel="stylesheet" href="../../styles/tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="section-preview-body">
+
+<!--
+  Section 6 — "Soft Products" carousel
+  Source: site-dna.json > layout['1440px'].sections[6]
+  <section class="w-full py-6 sm:py-8 md:py-10 lg:py-12 xl:py-16 bg-white dark:bg-zinc-900">
+  rect 1440x686, top:2526 == sections[5].top(1932) + sections[5].height(594), i.e.
+  this section starts exactly where 05-achievements ends (no gap).
+  DOM/content confirmed against live SSR HTML (curl https://www.dubaimed.com/, 2026-08-27):
+    <section><div class="wrapper"><div class="mx-auto max-w-7xl">
+      <div class="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12"><h2 class="typo-section-title">SOFT PRODUCTS</h2><p class="typo-lead ...">...</p></div>
+      <div><div class="relative"><div class="overflow-hidden"><div class="flex gap-4 pl-4 pr-4">
+        [5 product-card slides, flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_25%]]
+      </div></div>
+      <div class="mt-8 flex items-center justify-between"><div class="flex gap-4">[prev/next chevrons]</div><div class="flex gap-4"></div></div>
+    </div></div></section>
+  Uses the standard document wrapper (DOCTYPE/html/head/body.section-preview-body)
+  established in 00-header/01-nav/03-hero/04-about/05-achievements so
+  .section-preview-body{font-family:var(--font-primary)} applies.
+  See notes.md for the "glowing effect" card border and carousel-scroll stubs.
+-->
+
+<section class="soft-products-section" data-section-index="6" data-scroll-target="soft-products">
+  <div class="soft-products-section__wrapper">
+    <div class="soft-products-section__container">
+
+      <div class="soft-products-header">
+        <h2 class="soft-products-header__title">SOFT PRODUCTS</h2>
+        <p class="soft-products-header__lead">Discover our wide selection of premium soft products designed to support healthcare professionals in delivering safe, effective, and comfortable treatments.</p>
+      </div>
+
+      <div class="soft-products-carousel" data-component="soft-products-carousel" data-active-slide="1">
+        <div class="soft-products-carousel__viewport" data-carousel-viewport>
+          <div class="soft-products-carousel__track" data-carousel-track>
+
+            <div class="soft-products-carousel__slide">
+              <a class="product-card" href="/products/mesohyal">
+                <div class="product-card__frame" data-glow-card>
+                  <div class="product-card__glow" aria-hidden="true"></div>
+                  <div class="product-card__inner">
+                    <div class="product-card__media">
+                      <img class="product-card__image" src="../../../assets/images/d5f46af20c239d1e87f289abb571082e626d2b06-1280x720-48deaa.jpg" alt="mesohyal® - Intradermal medical solutions for facial and body… - MedBay International" loading="lazy">
+                      <span class="product-card__pill">soft products</span>
+                    </div>
+                    <div class="product-card__body">
+                      <div class="product-card__title">mesohyal®</div>
+                      <div class="product-card__desc-wrap"><p class="product-card__desc">Intradermal medical solutions for facial and body rejuvenation</p></div>
+                      <span class="product-card__link">Read more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right product-card__link-icon" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="soft-products-carousel__slide">
+              <a class="product-card" href="/products/anteage-mdx-biosome">
+                <div class="product-card__frame" data-glow-card>
+                  <div class="product-card__glow" aria-hidden="true"></div>
+                  <div class="product-card__inner">
+                    <div class="product-card__media">
+                      <img class="product-card__image" src="../../../assets/images/5576df235db55b512ba8295b2c2448060cf1f3ee-720x405-af40a2.jpg" alt="AnteAGE® MDX Biosome™ - Biomimetic exosome technology - MedBay International" loading="lazy">
+                      <span class="product-card__pill">soft products</span>
+                    </div>
+                    <div class="product-card__body">
+                      <div class="product-card__title">AnteAGE® MDX Biosome™</div>
+                      <div class="product-card__desc-wrap"><p class="product-card__desc">Biomimetic exosome technology</p></div>
+                      <span class="product-card__link">Read more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right product-card__link-icon" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="soft-products-carousel__slide">
+              <a class="product-card" href="/products/tranex-glow">
+                <div class="product-card__frame" data-glow-card>
+                  <div class="product-card__glow" aria-hidden="true"></div>
+                  <div class="product-card__inner">
+                    <div class="product-card__media">
+                      <img class="product-card__image" src="../../../assets/images/8a6a41d07f9ea030390b8a6c8eddf48f5cfd0a65-1280x720-a8df43.jpg" alt="traneX glow - Multi step professional depigmentation and radiance treatment - MedBay International" loading="lazy">
+                      <span class="product-card__pill">soft products</span>
+                    </div>
+                    <div class="product-card__body">
+                      <div class="product-card__title">traneX glow</div>
+                      <div class="product-card__desc-wrap"><p class="product-card__desc">Multi step professional depigmentation and radiance treatment</p></div>
+                      <span class="product-card__link">Read more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right product-card__link-icon" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="soft-products-carousel__slide">
+              <a class="product-card" href="/products/sunekos">
+                <div class="product-card__frame" data-glow-card>
+                  <div class="product-card__glow" aria-hidden="true"></div>
+                  <div class="product-card__inner">
+                    <div class="product-card__media">
+                      <img class="product-card__image" src="../../../assets/images/ad3bfdc7e1f1c11fb4b4c5c2738be65b0e93546b-720x405-50c1ba.webp" alt="SuneKOS - Hyaluronic Acid &amp; Amino Acids for the skin - MedBay International" loading="lazy">
+                      <span class="product-card__pill">soft products</span>
+                    </div>
+                    <div class="product-card__body">
+                      <div class="product-card__title">SuneKOS</div>
+                      <div class="product-card__desc-wrap"><p class="product-card__desc">Hyaluronic Acid &amp; Amino Acids for the skin</p></div>
+                      <span class="product-card__link">Read more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right product-card__link-icon" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="soft-products-carousel__slide">
+              <a class="product-card" href="/products/cellenis-prp">
+                <div class="product-card__frame" data-glow-card>
+                  <div class="product-card__glow" aria-hidden="true"></div>
+                  <div class="product-card__inner">
+                    <div class="product-card__media">
+                      <img class="product-card__image" src="../../../assets/images/dd7897466ec118a47b692198169ab5364b7b45f7-720x405-780c33.webp" alt="Cellenis® PRP - Autologous platelet‑rich plasma system for facial… - MedBay International" loading="lazy">
+                      <span class="product-card__pill">soft products</span>
+                    </div>
+                    <div class="product-card__body">
+                      <div class="product-card__title">Cellenis® PRP</div>
+                      <div class="product-card__desc-wrap"><p class="product-card__desc">Autologous platelet‑rich plasma system for facial and scalp rejuvenation</p></div>
+                      <span class="product-card__link">Read more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right product-card__link-icon" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="soft-products-carousel__controls">
+          <div class="soft-products-carousel__arrows">
+            <button class="soft-products-carousel__arrow soft-products-carousel__arrow--prev" type="button" aria-label="Previous slide" data-carousel-prev>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+            </button>
+            <button class="soft-products-carousel__arrow soft-products-carousel__arrow--next" type="button" aria-label="Next slide" data-carousel-next>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+            </button>
+          </div>
+          <div class="soft-products-carousel__actions">
+            <button class="soft-products-carousel__dot" type="button" aria-label="Go to slide 1" data-carousel-dot="0"></button>
+            <button class="soft-products-carousel__dot soft-products-carousel__dot--active" type="button" aria-label="Go to slide 2" aria-current="true" data-carousel-dot="1"></button>
+            <button class="soft-products-carousel__dot" type="button" aria-label="Go to slide 3" data-carousel-dot="2"></button>
+            <button class="soft-products-carousel__dot" type="button" aria-label="Go to slide 4" data-carousel-dot="3"></button>
+            <button class="soft-products-carousel__dot" type="button" aria-label="Go to slide 5" data-carousel-dot="4"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

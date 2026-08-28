@@ -1,0 +1,42 @@
+/*
+ * Section 2 — <main> page wrapper
+ * Source: site-dna.json layout['1440px'].sections[2] (tag: main, class "relative isolate")
+ * See index.html header comment for the flat-DOM-walk dedupe rationale.
+ */
+
+.section-preview-body {
+  margin: 0;
+  background: var(--color-bg-2, #ffffff);
+  font-family: var(--font-body);
+}
+
+/* main.relative.isolate — establishes a stacking context (isolate) so the
+   decorative layer and sticky header (section 0) don't fight z-index-wise. */
+.site-main {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  /* height is intentionally NOT hardcoded to the extraction-time value
+     (10632px) — it must grow with real content once sections 3-18 are
+     mounted. See notes.md. */
+}
+
+/* childLayout[0]: full-bleed absolute div behind all content sections.
+   DNA captured only tag/rect/position for this element (no backgroundColor,
+   gradient, or image reference in colors/assets) — rendered as an inert,
+   non-visual layer until that value is confirmed. See notes.md. */
+.site-main-decor {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Placeholder slot standing in for sections 3-16 (built independently).
+   Remove this element at final-page assembly time once those sections'
+   markup is spliced in after .site-main-decor. */
+.site-main-slot {
+  display: block;
+}

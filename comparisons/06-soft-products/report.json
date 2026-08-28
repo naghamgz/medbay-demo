@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-27T20:25:14.001Z",
+  "reference": "C:/Users/Sanasa/clone-workspace/references/screenshots/1440-section-6-w-full.png",
+  "clone": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\06-soft-products\\clone-section-1787862313576.png",
+  "diffImage": "C:\\Users\\Sanasa\\clone-workspace\\comparisons\\06-soft-products\\diff-section-1787862313576.png",
+  "selector": "section.soft-products-section",
+  "viewport": 1440,
+  "dimensions": {
+    "reference": {
+      "width": 1440,
+      "height": 686
+    },
+    "clone": {
+      "width": 1440,
+      "height": 686
+    }
+  },
+  "results": {
+    "totalPixels": 987840,
+    "mismatchedPixels": 9084,
+    "matchPercent": 99.08,
+    "passThreshold": 95,
+    "passed": true
+  },
+  "elementCount": 41
+}

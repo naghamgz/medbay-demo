@@ -1,0 +1,345 @@
+/*
+ * Section 4 — About video intro
+ * Values sourced from site-dna.json layout['1440px'].sections[4], typography
+ * entries 18-24, components['1440px'].buttons[37,101], media[10,11,12,13],
+ * and cross-checked against the site's own extracted CSS
+ * (assets/css/0s__7n242xu4_-f76612.css: .wrapper, .typo-lead, .btn-secondary,
+ * .text-maroon, --color-maroon, --color-gray-700, --spacing, --container-7xl).
+ * Dark-mode variants intentionally omitted (extractor captured light mode only).
+ */
+
+/* Preview-only scaffold, same convention as 00-header/01-nav/03-hero.
+   Fixed in round 2 (comparator @ 77.68%): without this rule + the
+   corresponding <body class="section-preview-body"> wrapper in index.html,
+   --font-primary never applied and text rendered in the browser default
+   serif instead of Montserrat. */
+.section-preview-body {
+  margin: 0;
+  min-height: 868px; /* DNA sections[4].rect.height */
+  padding: 0;
+  background: var(--color-bg-2); /* #ffffff, matches .about-section bg */
+  font-family: var(--font-primary);
+}
+
+/* Outer .wrapper: this IS the <section> element itself in the live DOM
+   (class="wrapper pt-8 pb-12 sm:pb-16 md:pb-20 bg-white dark:bg-zinc-900").
+   DNA sections[4] confirms max-width:1280px, margin:0 80px 0 80px (computed,
+   via margin-inline:auto at 1440px viewport), padding:32px 32px 80px 32px
+   directly on this element — NOT on a child container. Fixed in round 2 after
+   comparator flagged the clone rendering 1424px wide vs reference 1280px. */
+.about-section {
+  width: 100%;
+  max-width: var(--container-0); /* 1280px */
+  margin-inline: auto;
+  padding-top: var(--space-11);   /* pt-8 = 32px */
+  padding-inline: var(--space-11); /* px-8 = 32px */
+  padding-bottom: 80px;            /* md:pb-20 = 80px, matches DNA padding-bottom */
+  box-sizing: border-box;
+  background-color: var(--color-bg-2); /* #ffffff */
+}
+
+/* Pass-through node kept to mirror live DOM depth (the "wrapper" section has
+   one child div, DNA childLayout[0]: 1216x756 = 1280 - 32*2 padding). No
+   sizing/padding of its own — the cap now lives on .about-section above. */
+.about-section__container {
+  width: 100%;
+}
+
+/* Inner "mx-auto max-w-7xl" wrapper: same 1280px cap, already satisfied by the
+   container above, kept as a distinct node to mirror the real DOM depth. */
+.about-section__container > .about-section__inner {
+  width: 100%;
+}
+
+/* "mx-auto flex max-w-5xl flex-col items-center gap-8 text-center" */
+.about-section__inner {
+  max-width: 1024px; /* 64rem */
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-11); /* gap-8 = 32px */
+  text-align: center;
+}
+
+/* ── Video block ───────────────────────────────────────────────────── */
+
+.about-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px; /* rounded-2xl */
+  background-color: #000000;
+  box-shadow: 0px 1.5px 14.5px 2.5px rgba(0, 0, 0, 0.102),
+              0px 1px 2px 1.5px rgba(0, 0, 0, 0.102); /* shadow-sm */
+}
+
+.about-video__thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  color: transparent;
+}
+
+/* bg-gradient-to-tr from-black/40 via-black/10 to-transparent === --gradient-3 */
+.about-video__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-3);
+}
+
+.about-video__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.about-video__play-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;  /* h-10 w-10 */
+  height: 40px;
+  border-radius: var(--radius-3); /* pill */
+  background-color: rgba(255, 255, 255, 0.2); /* bg-white/20 */
+  color: #000000;
+  box-shadow: 0px 1.5px 14.5px 2.5px rgba(0, 0, 0, 0.1),
+              0px 4px 6px 1.5px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  outline: 1px solid rgba(0, 0, 0, 0.1); /* ring-1 ring-black/10 (approximated with outline to avoid affecting layout) */
+  outline-offset: -1px;
+  transition: transform var(--transition-1); /* transition duration-300ish, matches token */
+}
+
+@media (min-width: 768px) {
+  .about-video__play-icon {
+    width: 60px; /* md:h-15 md:w-15 */
+    height: 60px;
+  }
+}
+
+.about-video__play:hover .about-video__play-icon {
+  transform: scale(1.05); /* hover:scale-105 */
+}
+
+.about-video__play-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.about-video__yt-link {
+  position: absolute;
+  bottom: var(--space-8); /* bottom-4 = 16px */
+  left: var(--space-8);   /* left-4 = 16px */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-5); /* gap-2 = 8px */
+  border-radius: var(--radius-3); /* pill */
+  background-color: rgba(255, 255, 255, 0.1); /* bg-white/10 */
+  padding: var(--space-5) var(--space-8); /* py-2 px-4 = 8px 16px */
+  font-size: 12px;   /* text-xs */
+  line-height: 16px;
+  font-weight: 500;  /* font-medium */
+  letter-spacing: 0.3px; /* tracking-wide, matches DNA typography[24] exactly */
+  color: var(--color-text-12); /* #ffffff */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2); /* ring-1 ring-white/20 */
+  text-decoration: none;
+  transition: background-color var(--transition-0);
+}
+
+.about-video__yt-link:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* hover:bg-white/15 */
+}
+
+.about-video__yt-link svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+/* ── Text block ────────────────────────────────────────────────────── */
+
+/* "flex w-full max-w-[64rem] flex-col items-center gap-4 px-2 md:max-w-[60rem]" */
+.about-copy {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8); /* gap-4 = 16px */
+  padding-inline: var(--space-2); /* px-2 = 2px */
+}
+
+@media (min-width: 768px) {
+  .about-copy {
+    max-width: 960px; /* md:max-w-[60rem] */
+  }
+}
+
+/* .typo-lead at the 1440px/base breakpoint: font-size 16px, line-height 26px
+   (leading-relaxed 1.625 * 16px), color --color-gray-700. Matches DNA
+   typography[20] exactly. */
+.about-copy__lead {
+  margin: 0;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-text-11); /* lab(27.1134 -0.956401 -12.3224) = gray-700 */
+  text-align: center;
+}
+
+.about-copy__read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2); /* gap-1 = 4px */
+  vertical-align: baseline;
+  font-weight: 600; /* font-semibold, matches DNA typography[21] */
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--brand-blue);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.about-copy__read-more svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Collapsed accordion: real site starts at max-height:0 and expands via JS.
+   Hook left inert here for Step 11 (scroll/interaction wiring); comparator
+   should evaluate this section in its default (collapsed) state. */
+.about-copy__expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  width: 100%;
+}
+
+.about-copy__expand[data-expanded="true"] {
+  max-height: 1000px;
+}
+
+.about-copy__expand-inner {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-text-11);
+  text-align: center;
+}
+
+.about-copy__expand-p2 {
+  margin-top: var(--space-8); /* mt-4 = 16px */
+}
+
+/* "flex flex-wrap items-center justify-center gap-3" */
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-7); /* gap-3 = 12px */
+}
+
+.about-pills__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-pill {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* Outer ring wrapper: relative, rounded-full, p-px, w-fit/h-min.
+   Sized entirely by the label div inside (position: relative, no explicit
+   width/height so the 2px inset mask + glow track the label's box). */
+.about-pill__ring-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: min-content;
+  overflow: visible;
+  border-radius: var(--radius-3); /* pill */
+  background-color: rgba(0, 0, 0, 0.2); /* bg-black/20 */
+  padding: 1px; /* p-px */
+  transition: background-color var(--transition-2);
+}
+
+.about-pill:hover .about-pill__ring-wrap {
+  background-color: rgba(0, 0, 0, 0.1); /* hover:bg-black/10 */
+}
+
+/* .btn-secondary label: opaque pill, z-10, sits above the glow/mask */
+.about-pill__label {
+  position: relative;
+  z-index: 10;
+  width: auto;
+  background-color: var(--color-bg-2); /* #ffffff */
+  color: var(--color-text-5); /* zinc-800 / main dark text */
+  padding-inline: var(--space-9); /* px-5 = 20px */
+  padding-block: var(--space-5);  /* py-2 = 8px */
+  font-size: 16px;   /* text-sm base override */
+  line-height: 24px;
+  font-weight: 500;  /* font-medium */
+  border-radius: inherit;
+  box-shadow: 0px 1.5px 14.5px 2.5px rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: color var(--transition-0);
+}
+
+.about-pill:hover .about-pill__label {
+  color: var(--brand-green);
+}
+
+/* radial-gradient glow rings, blurred, sit behind the mask (z-0) */
+.about-pill__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.about-pill__glow--light {
+  background: radial-gradient(20.7% 50% at 50% 0%, rgba(120,200,32,0.16) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.about-pill__glow--dark {
+  display: none; /* dark:block — light-mode build only */
+}
+
+/* Mask: opaque pill inset by 2px, leaves a 2px gradient-colored ring visible
+   around the label — the "gradient border" trick. z-1, between glow (z-0)
+   and label (z-10). */
+.about-pill__mask {
+  position: absolute;
+  z-index: 1;
+  inset: 2px;
+  background-color: var(--color-bg-2); /* #ffffff */
+  border-radius: 100px;
+  pointer-events: none;
+}
+
+/* ── Responsive notes ──────────────────────────────────────────────── */
+/* DNA only confirms rect geometry down to 1024/768/375px widths for this
+   section index (see notes.md); column widths above follow the Tailwind
+   class hints directly (max-w-[64rem], md:max-w-[60rem], md:h-15/w-15),
+   not independently-verified DNA pixel data at those breakpoints. */

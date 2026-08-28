@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBay International — Section 3.5: Shaping the Future (gap block)</title>
+<link rel="stylesheet" href="../../styles/tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="section-preview-body">
+
+<!--
+  SPECIAL CASE — this section has NO site-dna.json entry.
+  site-dna.json > layout['1440px'].sections only indexes header/nav/main/
+  section/footer tags. On the live page, this content sits inside a plain
+  <div> between DOM section_index 3 (hero carousel, </section> at DNA
+  sections[3], rect bottom ~716px) and DOM section_index 4 (about/video
+  intro, <section class="wrapper ..."> at DNA sections[4], rect top 1064px),
+  so the extractor never assigned it an index and it is entirely absent
+  from the DNA. Flagged by the section_index=4 reconstructor
+  (build/sections/04-about/notes.md, "CRITICAL — gap between section 3 and
+  section 4").
+
+  Everything here was sourced from:
+  1. Live SSR HTML fetched directly via curl https://www.dubaimed.com/
+     (RSC payload gave the exact JSX tree, classes, and the word-rotator
+     list ["Dubai","UAE","Qatar","Oman","GCC"]).
+  2. The site's own extracted stylesheet assets/css/0s__7n242xu4_-f76612.css
+     for .typo-h2, .typo-lead, --color-maroon, --color-gray-900/700,
+     --text-*, --tracking-tight, --leading-relaxed exact values.
+  3. A crop of references/screenshots/1440-full-page.png at y:716-1064
+     (saved alongside this file as reference-crop.png) for visual layout
+     confirmation — no dedicated reference screenshot exists for this block.
+  4. build/styles/tokens.css for reused global tokens (spacing, colors,
+     font). --color-maroon (#9b0058) and the blob's #500b32 stop are NOT in
+     tokens.css (the token generator didn't capture this arbitrary Tailwind
+     color), so they are hardcoded here, same precedent as
+     04-about/styles.css's .about-pill__glow--light.
+
+  Live DOM (simplified from the RSC payload):
+      <div class="relative isolate px-6 pt-20 lg:px-8">
+      <div aria-hidden="true" class="... -top-40 sm:-top-80 ... blur-3xl">
+        <div style="clip-path:polygon(... )" class="... rotate-30 bg-linear-to-tr from-[#78C820] to-[#007030] opacity-30 ..."></div>
+      </div>
+      <div class="mx-auto max-w-4xl sm:py-1 lg:py-1">
+        <div class="flex-center sm:mb-8 sm:flex sm:justify-center relative">
+          <button class="... bg-black/20 hover:bg-black/10 ... rounded-full">
+            GROWTH • INNOVATION • TRUST badge (gradient-ring pill, same
+            component reused as "About Us"/"Events & News" in section 4)
+          </button>
+        </div>
+        <div class="text-center mt-3">
+          <h1 class="typo-h2 pb-2">Shaping the Future of Aesthetic &amp;
+            Medicine in <span class="rotating word underline">
+            Dubai|UAE|Qatar|Oman|GCC</span></h1>
+          <p class="typo-lead mt-2 sm:mt-3">DUBIMED is the leading supplier
+            and distributor of <strong>aesthetic medical devices and soft
+            product supplies</strong> for aesthetic, regenerative and
+            longevity medicine. We serve clinics and professionals across
+            UAE, Qatar, Oman and the rest of the GCC.</p>
+        </div>
+      </div>
+      <div aria-hidden="true" class="... top-[calc(100%-13rem)] sm:top-[calc(100%-30rem)] ... blur-3xl">
+        <div style="clip-path:polygon(... )" class="... (no rotate) bg-linear-to-tr from-[#78C820] to-[#007030] opacity-30 ..."></div>
+      </div>
+    </div>
+
+  See notes.md for the word-rotator stub, and all deviations/approximations.
+-->
+
+<section class="shaping" data-section-index="3.5" data-scroll-target="shaping-future">
+  <div class="shaping__blob shaping__blob--top" aria-hidden="true"></div>
+
+  <div class="shaping__container">
+    <div class="shaping__badge-row">
+      <button class="shaping-badge" type="button" aria-label="Growth, Innovation, Trust">
+        <span class="shaping-badge__ring-wrap">
+          <span class="shaping-badge__label">
+            GROWTH <span class="shaping-badge__dot">&bull;</span> INNOVATION <span class="shaping-badge__dot">&bull;</span> TRUST
+          </span>
+          <span class="shaping-badge__glow" aria-hidden="true"></span>
+          <span class="shaping-badge__mask" aria-hidden="true"></span>
+        </span>
+      </button>
+    </div>
+
+      <div class="shaping__copy">
+      <h1 class="shaping__title">
+        Shaping the Future of Aesthetic &amp; Medicine in<span class="shaping__title-gap"> </span><span
+          class="shaping__title-rotator"
+          data-word-rotator
+          data-words="Dubai,UAE,Qatar,Oman,GCC"
+          data-word-interval-ms="2200"
+        >UAE</span>
+      </h1>
+      <p class="shaping__lead">
+        MedBay International is a leading supplier and distributor of
+        <strong>aesthetic medical devices and soft product supplies</strong>
+        for aesthetic, regenerative and longevity medicine. We serve clinics
+        and professionals across UAE, Qatar, Oman and the rest of the GCC.
+      </p>
+    </div>
+  </div>
+
+  <div class="shaping__blob shaping__blob--bottom" aria-hidden="true"></div>
+</section>
+
+</body>
+</html>
